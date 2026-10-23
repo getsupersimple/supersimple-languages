@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "content_version": "dev",
+  "channel": "dev",
+  "min_app_version": "1.0.0",
+  "courses": [
+    {
+      "id": "tourist-sr",
+      "version": "0.1.0",
+      "min_app_version": "1.0.0",
+      "kind": "tourist",
+      "target_language": "sr",
+      "title": {
+        "en": "Serbian for Tourists"
+      },
+      "sources": [
+        "en"
+      ],
+      "units": [
+        {
+          "id": "greetings-and-basics",
+          "title": {
+            "en": "Greetings and basics"
+          },
+          "concepts": 4,
+          "target": {
+            "path": "courses/tourist-sr/greetings-and-basics.zip",
+            "sha256": "6bcb2f26b3991d9a1534700cb7ea65f56ba0b5b9c30702a89d1a14cf03ab680d",
+            "size": 159662
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-sr/greetings-and-basics.en.json",
+              "sha256": "3e47066b5425022c7d14c71de92560b29c485373e1a0995eb14b1708136e3375",
+              "size": 773
+            }
+          }
+        },
+        {
+          "id": "food-and-getting-around",
+          "title": {
+            "en": "Food and getting around"
+          },
+          "concepts": 2,
+          "target": {
+            "path": "courses/tourist-sr/food-and-getting-around.zip",
+            "sha256": "d77882511e56fb8a1c564a5a13c365b5f3df386285693af603d5b29f59cb1092",
+            "size": 117572
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-sr/food-and-getting-around.en.json",
+              "sha256": "87b50df93d260b0d03d13946c548d4358c9a5d3f3fb816b16f4f1c02ce655eb2",
+              "size": 612
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

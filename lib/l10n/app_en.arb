@@ -1,0 +1,113 @@
+{
+  "@@locale": "en",
+  "appTitle": "Supersimple Languages",
+  "unitsHeading": "Units",
+  "unitPhraseCount": "{count, plural, =1{1 phrase} other{{count} phrases}}",
+  "@unitPhraseCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "unitDownloading": "Downloading…",
+  "unitReady": "Ready",
+  "unitNotDownloaded": "Tap to download",
+  "loadError": "Couldn't load the content.",
+  "retry": "Try again",
+  "translateInstruction": "Translate this sentence",
+  "checkButton": "Check",
+  "continueButton": "Continue",
+  "correctFeedback": "Correct!",
+  "incorrectFeedback": "Not quite",
+  "correctAnswerWas": "Correct answer: {answer}",
+  "@correctAnswerWas": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonComplete": "Lesson complete!",
+  "lessonScore": "You got {correct} of {total} right.",
+  "@lessonScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "backToUnits": "Back to units",
+  "lessonProgress": "Question {current} of {total}",
+  "@lessonProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "lessonNeedsMorePhrases": "This unit doesn't have enough phrases for a lesson yet.",
+  "playAudio": "Play audio",
+  "listenInstruction": "What do you hear?",
+  "buildInstruction": "Build the sentence",
+  "matchInstruction": "Match the pairs",
+  "typeInstruction": "Type what you hear",
+  "typeHint": "Type the phrase",
+  "introInstruction": "New phrase",
+  "tapWordHint": "Tap a word to learn more",
+  "gotIt": "Got it",
+  "lemmaFormOf": "\"{form}\" is a form of \"{lemma}\"",
+  "@lemmaFormOf": {
+    "placeholders": {
+      "form": {
+        "type": "String"
+      },
+      "lemma": {
+        "type": "String"
+      }
+    }
+  },
+  "closeButton": "Close",
+  "posNoun": "noun",
+  "posVerb": "verb",
+  "posAdjective": "adjective",
+  "posAdverb": "adverb",
+  "posPronoun": "pronoun",
+  "posNumeral": "numeral",
+  "posPreposition": "preposition",
+  "posConjunction": "conjunction",
+  "posParticle": "particle",
+  "posInterjection": "interjection",
+  "caseNom": "nominative",
+  "caseGen": "genitive",
+  "caseDat": "dative",
+  "caseAcc": "accusative",
+  "caseVoc": "vocative",
+  "caseIns": "instrumental",
+  "caseLoc": "locative",
+  "numberSg": "singular",
+  "numberPl": "plural",
+  "genderM": "masculine",
+  "genderF": "feminine",
+  "genderN": "neuter",
+  "personLabel": "person {n}",
+  "@personLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "tensePres": "present",
+  "tensePast": "past",
+  "tenseFut": "future",
+  "tenseImp": "imperative",
+  "formClitic": "short form",
+  "formInfinitive": "infinitive"
+}
