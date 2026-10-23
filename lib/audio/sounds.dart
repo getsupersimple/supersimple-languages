@@ -10,6 +10,10 @@ enum Sound {
   unitComplete,
 }
 
+/// How long after the correct-answer chime the spoken phrase starts, so the
+/// voice is not buried under the chime.
+const chimeLead = Duration(milliseconds: 700);
+
 /// Plays feedback sounds. A seam so tests can record what would play.
 ///
 /// Separate from [AudioPlayerService]: a chime must not cut off the spoken phrase

@@ -4,22 +4,25 @@ import 'audio/sounds.dart';
 import 'l10n/app_localizations.dart';
 import 'packs/pack_source.dart';
 import 'packs/pack_store.dart';
+import 'settings/settings.dart';
 import 'theme/app_theme.dart';
 import 'ui/home_screen.dart';
 
 /// Dependencies the screens need. Passed down explicitly so tests can swap them.
 class AppServices {
-  const AppServices({
+  AppServices({
     required this.source,
     required this.store,
     required this.audio,
     this.sounds = const SilentSoundPlayer(),
-  });
+    AppSettings? settings,
+  }) : settings = settings ?? AppSettings();
 
   final PackSource source;
   final PackStore store;
   final AudioPlayerService audio;
   final SoundPlayer sounds;
+  final AppSettings settings;
 }
 
 class SupersimpleApp extends StatelessWidget {

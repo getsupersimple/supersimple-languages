@@ -308,6 +308,12 @@ abstract class AppLocalizations {
   /// **'pronoun'**
   String get posPronoun;
 
+  /// No description provided for @posDeterminer.
+  ///
+  /// In en, this message translates to:
+  /// **'determiner'**
+  String get posDeterminer;
+
   /// No description provided for @posNumeral.
   ///
   /// In en, this message translates to:
@@ -451,6 +457,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'infinitive'**
   String get formInfinitive;
+
+  /// No description provided for @tabLearn.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn'**
+  String get tabLearn;
+
+  /// No description provided for @tabSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get tabSettings;
+
+  /// No description provided for @learnHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you want to learn?'**
+  String get learnHeading;
+
+  /// No description provided for @learnFilterNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your language: {language}. You can change it in Settings.'**
+  String learnFilterNote(String language);
+
+  /// No description provided for @noCourses.
+  ///
+  /// In en, this message translates to:
+  /// **'No courses for this language yet.'**
+  String get noCourses;
+
+  /// No description provided for @sourceLanguageHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'I speak'**
+  String get sourceLanguageHeading;
+
+  /// No description provided for @sourceLanguageHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your language to see the courses available for it.'**
+  String get sourceLanguageHelp;
 }
 
 class _AppLocalizationsDelegate

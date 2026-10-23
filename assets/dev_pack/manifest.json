@@ -5,53 +5,140 @@
   "min_app_version": "1.0.0",
   "courses": [
     {
-      "id": "tourist-sr",
+      "id": "tourist-fr",
       "version": "0.1.0",
       "min_app_version": "1.0.0",
       "kind": "tourist",
-      "target_language": "sr",
+      "target_language": "fr",
       "title": {
-        "en": "Serbian for Tourists"
+        "en": "French for Tourists",
+        "fr": "Le français pour les touristes",
+        "sr": "Francuski za turiste"
       },
       "sources": [
-        "en"
+        "en",
+        "sr"
       ],
       "units": [
         {
           "id": "greetings-and-basics",
           "title": {
-            "en": "Greetings and basics"
+            "en": "Greetings and basics",
+            "fr": "Salutations et bases",
+            "sr": "Pozdravi i osnove"
           },
           "concepts": 4,
           "target": {
-            "path": "courses/tourist-sr/greetings-and-basics.zip",
-            "sha256": "59005cd9154ff31f67fe1643e5f9784902ca11296a772096423d48249bb9e2ec",
-            "size": 91224
+            "path": "courses/tourist-fr/greetings-and-basics.zip",
+            "sha256": "4ef6a8fd4a0173e068f57a76ba712d5d167208e71f1838ddd2f7fccb3d77f249",
+            "size": 165322
           },
           "text": {
             "en": {
-              "path": "courses/tourist-sr/greetings-and-basics.en.json",
-              "sha256": "dc90df0ad45ec2a487ac59f6e3b36d7aeb0032993299951d0e2dbf36b385e159",
-              "size": 867
+              "path": "courses/tourist-fr/greetings-and-basics.en.json",
+              "sha256": "999ed58d689c2485f8a0fc1c5c0ca91672095c7cd929d7e287b294c0d7f67965",
+              "size": 1071
+            },
+            "sr": {
+              "path": "courses/tourist-fr/greetings-and-basics.sr.json",
+              "sha256": "88447bea0c6a8d9815d38f249b5b5fb6fcbf08578ac3be06fb0230d9e084666f",
+              "size": 1337
             }
           }
         },
         {
           "id": "food-and-getting-around",
           "title": {
-            "en": "Food and getting around"
+            "en": "Food and getting around",
+            "fr": "Se restaurer et se déplacer",
+            "sr": "Hrana i snalaženje"
+          },
+          "concepts": 2,
+          "target": {
+            "path": "courses/tourist-fr/food-and-getting-around.zip",
+            "sha256": "f09003258ef400c747c3509dc1203113b92411307d5ba33f3b4af468169b080f",
+            "size": 153646
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-fr/food-and-getting-around.en.json",
+              "sha256": "8a00458cc115052755b33bcb02f33fec9c0d1e6d5843ed2a31ad8a488d97593b",
+              "size": 1117
+            },
+            "sr": {
+              "path": "courses/tourist-fr/food-and-getting-around.sr.json",
+              "sha256": "5c67917668f60d9f7a105849f0c05c7edb427c21b83d704b675dd8df12dc478d",
+              "size": 1247
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tourist-sr",
+      "version": "0.1.0",
+      "min_app_version": "1.0.0",
+      "kind": "tourist",
+      "target_language": "sr",
+      "title": {
+        "en": "Serbian for Tourists",
+        "fr": "Le serbe pour les touristes",
+        "sr": "Srpski za turiste"
+      },
+      "sources": [
+        "en",
+        "fr"
+      ],
+      "units": [
+        {
+          "id": "greetings-and-basics",
+          "title": {
+            "en": "Greetings and basics",
+            "fr": "Salutations et bases",
+            "sr": "Pozdravi i osnove"
+          },
+          "concepts": 4,
+          "target": {
+            "path": "courses/tourist-sr/greetings-and-basics.zip",
+            "sha256": "1c57985fdf7cbd30516240c0c6baa56879048de2e4a3f4f0abcfdc60719d3b77",
+            "size": 242154
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-sr/greetings-and-basics.en.json",
+              "sha256": "dc90df0ad45ec2a487ac59f6e3b36d7aeb0032993299951d0e2dbf36b385e159",
+              "size": 867
+            },
+            "fr": {
+              "path": "courses/tourist-sr/greetings-and-basics.fr.json",
+              "sha256": "b1e03e6e31d3750b0a382cc5637f49729cf50c655d8db18c626819f9ba9c644d",
+              "size": 993
+            }
+          }
+        },
+        {
+          "id": "food-and-getting-around",
+          "title": {
+            "en": "Food and getting around",
+            "fr": "Se restaurer et se déplacer",
+            "sr": "Hrana i snalaženje"
           },
           "concepts": 2,
           "target": {
             "path": "courses/tourist-sr/food-and-getting-around.zip",
-            "sha256": "c8971328876b8c506ad7407f6aeab544cc24caeae07812d41d99cd2ea812eba1",
-            "size": 61596
+            "sha256": "c6dc5df4165a81891773ad952c246b4d66767c8a969033f2d6da70a9225eb0bb",
+            "size": 180921
           },
           "text": {
             "en": {
               "path": "courses/tourist-sr/food-and-getting-around.en.json",
               "sha256": "87b50df93d260b0d03d13946c548d4358c9a5d3f3fb816b16f4f1c02ce655eb2",
               "size": 612
+            },
+            "fr": {
+              "path": "courses/tourist-sr/food-and-getting-around.fr.json",
+              "sha256": "5e6b2237d04da74b47976aff151e3861dd5192d0c3f5484824460cb67e8970e2",
+              "size": 617
             }
           }
         }

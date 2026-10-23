@@ -160,21 +160,38 @@ class LessonPlan {
 
 const _folds = {
   'č': 'c', 'ć': 'c', 'š': 's', 'ž': 'z', 'đ': 'dj',
+  'à': 'a', 'â': 'a', 'ç': 'c', 'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+  'î': 'i', 'ï': 'i', 'ô': 'o', 'ù': 'u', 'û': 'u', 'ü': 'u', 'œ': 'oe',
 };
 
 /// Typing check: case, punctuation, spacing and accents are ignored, so a
 /// learner on an English keyboard can type "Gde je toalet" or "umoran sam".
+/// A hyphen separates words ("Parlez-vous" is typed "parlez vous").
 String normalizeAnswer(String text) {
-  final folded = text.toLowerCase().split('').map((c) => _folds[c] ?? c).join();
+  final folded = text.toLowerCase().replaceAll('-', ' ').split('').map((c) => _folds[c] ?? c).join();
   return folded.replaceAll(RegExp(r'[^\p{L}\p{N}\s]', unicode: true), '').trim().split(RegExp(r'\s+')).join(' ');
 }
 
+/// Concept variants that name the speaker's gender, and the voice gender they need.
+const _variantSpeaker = {'m': 'male', 'f': 'female'};
+
+/// The recordings a phrase may be heard in. A phrase for a gendered speaker
+/// ("Umoran sam" / "Umorna sam") is only ever voiced by a voice of that gender.
+List<Recording> _spokenAudio(TargetPhrase phrase) {
+  final speaker = _variantSpeaker[phrase.variant];
+  if (speaker == null) return phrase.audio;
+  return [for (final r in phrase.audio) if (r.gender == speaker) r];
+}
+
 class _Pair {
-  const _Pair(this.phrase, this.target, this.source);
+  _Pair(this.phrase, this.target, this.source) : audio = _spokenAudio(phrase);
 
   final TargetPhrase phrase;
   final String target;
   final String source;
+
+  /// [phrase] audio limited to the voices allowed for its speaker.
+  final List<Recording> audio;
 }
 
 /// Builds a lesson from one unit.
@@ -207,6 +224,15 @@ LessonPlan generateLesson(
     ..sort();
   String? pickVoice() => voices.isEmpty ? null : voices[rng.nextInt(voices.length)];
 
+  /// A random voice for the pair's phrase; for a gendered phrase, one of that gender.
+  /// Tiles and the phrase share it, so the whole question has one speaker.
+  String? voiceFor(_Pair pair) {
+    if (pair.audio.isEmpty) return null;
+    if (!_variantSpeaker.containsKey(pair.phrase.variant)) return pickVoice();
+    final allowed = ({for (final r in pair.audio) r.voiceId}).toList()..sort();
+    return allowed[rng.nextInt(allowed.length)];
+  }
+
   Tile tileOf(Token t) => Tile(
         text: pickScript(t.surface, script),
         lemma: t.lemma,
@@ -230,15 +256,15 @@ LessonPlan generateLesson(
     }).toList()
       ..shuffle(rng);
     if (distractors.isEmpty) return null;
-    if (kind == ExerciseKind.listenAndChoose && pair.phrase.audio.isEmpty) return null;
+    if (kind == ExerciseKind.listenAndChoose && pair.audio.isEmpty) return null;
 
     final options = [answer(pair), ...distractors.take(optionCount - 1)]..shuffle(rng);
     final optionAudio = kind == ExerciseKind.translateToTarget
-        ? {for (final p in pairs) if (options.contains(p.target)) p.target: p.phrase.audio}
+        ? {for (final p in pairs) if (options.contains(p.target)) p.target: p.audio}
         : const <String, List<Recording>>{};
     final heard = kind == ExerciseKind.translateToTarget
         ? optionAudio.values.any((a) => a.isNotEmpty)
-        : pair.phrase.audio.isNotEmpty;
+        : pair.audio.isNotEmpty;
     return ChoiceExercise(
       kind: kind,
       prompt: prompt(pair),
@@ -246,9 +272,13 @@ LessonPlan generateLesson(
       answer: answer(pair),
       accepted: accepted,
       // Heard on its own for listen-and-choose; after a correct check for translate-from-target.
-      audio: kind == ExerciseKind.translateToTarget ? const [] : pair.phrase.audio,
+      audio: kind == ExerciseKind.translateToTarget ? const [] : pair.audio,
       optionAudio: optionAudio,
-      voiceId: heard ? pickVoice() : null,
+      voiceId: !heard
+          ? null
+          : kind == ExerciseKind.translateToTarget
+              ? pickVoice()
+              : voiceFor(pair),
     );
   }
 
@@ -285,8 +315,8 @@ LessonPlan generateLesson(
       answer: answerTiles,
       bank: [...answerTiles, ...extras]..shuffle(rng),
       accepted: accepted,
-      audio: pair.phrase.audio,
-      voiceId: pair.phrase.audio.isEmpty ? null : pickVoice(),
+      audio: pair.audio,
+      voiceId: voiceFor(pair),
     ));
   }
   buildPool.shuffle(rng);
@@ -321,8 +351,7 @@ LessonPlan generateLesson(
   // --- type what you hear ------------------------------------------------
   final typePool = <Exercise>[
     for (final pair in pairs)
-      if (pair.phrase.audio.isNotEmpty)
-        TypeExercise(answer: pair.target, audio: pair.phrase.audio, voiceId: pickVoice()),
+      if (pair.audio.isNotEmpty) TypeExercise(answer: pair.target, audio: pair.audio, voiceId: voiceFor(pair)),
   ]..shuffle(rng);
 
   // --- assemble: round-robin so a lesson mixes types ---------------------
@@ -350,8 +379,8 @@ LessonPlan generateLesson(
         target: pair.target,
         source: pair.source,
         tiles: pair.phrase.tokens.map(tileOf).toList(),
-        audio: pair.phrase.audio,
-        voiceId: pair.phrase.audio.isEmpty ? null : pickVoice(),
+        audio: pair.audio,
+        voiceId: voiceFor(pair),
       ),
   ];
   return LessonPlan(intro: intro, exercises: exercises);

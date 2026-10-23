@@ -132,6 +132,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get posPronoun => 'pronom';
 
   @override
+  String get posDeterminer => 'déterminant';
+
+  @override
   String get posNumeral => 'numéral';
 
   @override
@@ -204,4 +207,28 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get formInfinitive => 'infinitif';
+
+  @override
+  String get tabLearn => 'Apprendre';
+
+  @override
+  String get tabSettings => 'Réglages';
+
+  @override
+  String get learnHeading => 'Que voulez-vous apprendre ?';
+
+  @override
+  String learnFilterNote(String language) {
+    return 'Votre langue : $language. Vous pouvez la changer dans les Réglages.';
+  }
+
+  @override
+  String get noCourses => 'Aucun cours pour cette langue pour le moment.';
+
+  @override
+  String get sourceLanguageHeading => 'Je parle';
+
+  @override
+  String get sourceLanguageHelp =>
+      'Choisissez votre langue pour voir les cours disponibles.';
 }

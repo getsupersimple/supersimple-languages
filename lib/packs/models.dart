@@ -120,6 +120,9 @@ class Manifest {
   final String channel;
   final String minAppVersion;
   final List<CourseInfo> courses;
+
+  /// Every language some course can be learned from, sorted.
+  List<String> get sourceLanguages => ({for (final c in courses) ...c.sources}).toList()..sort();
 }
 
 class Recording {

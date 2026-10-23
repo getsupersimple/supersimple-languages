@@ -10,6 +10,7 @@ String describeGrammar(AppLocalizations l10n, Map<String, dynamic> grammar) {
       'adjective' => l10n.posAdjective,
       'adverb' => l10n.posAdverb,
       'pronoun' => l10n.posPronoun,
+      'determiner' => l10n.posDeterminer,
       'numeral' => l10n.posNumeral,
       'preposition' => l10n.posPreposition,
       'conjunction' => l10n.posConjunction,

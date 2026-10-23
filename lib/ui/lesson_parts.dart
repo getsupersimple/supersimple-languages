@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../audio/audio.dart';
@@ -124,6 +126,23 @@ class OptionCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// Starts speech a moment after the correct-answer chime, and cancels it if the
+/// learner leaves the step first.
+mixin ChimeLead<T extends StatefulWidget> on State<T> {
+  Timer? _speech;
+
+  void speakAfterChime(VoidCallback speak) {
+    _speech?.cancel();
+    _speech = Timer(chimeLead, speak);
+  }
+
+  @override
+  void dispose() {
+    _speech?.cancel();
+    super.dispose();
   }
 }
 

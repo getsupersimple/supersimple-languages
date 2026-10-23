@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -6,6 +8,7 @@ import 'audio/audio.dart';
 import 'audio/sounds.dart';
 import 'packs/pack_source.dart';
 import 'packs/pack_store.dart';
+import 'settings/settings.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +22,7 @@ Future<void> main() async {
         store: PackStore(support),
         audio: JustAudioPlayerService(),
         sounds: sounds,
+        settings: await AppSettings.load(File('${support.path}/settings.json')),
       ),
     ),
   );

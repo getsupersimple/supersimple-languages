@@ -79,6 +79,7 @@
   "posAdjective": "adjective",
   "posAdverb": "adverb",
   "posPronoun": "pronoun",
+  "posDeterminer": "determiner",
   "posNumeral": "numeral",
   "posPreposition": "preposition",
   "posConjunction": "conjunction",
@@ -109,5 +110,19 @@
   "tenseFut": "future",
   "tenseImp": "imperative",
   "formClitic": "short form",
-  "formInfinitive": "infinitive"
+  "formInfinitive": "infinitive",
+  "tabLearn": "Learn",
+  "tabSettings": "Settings",
+  "learnHeading": "What do you want to learn?",
+  "learnFilterNote": "Your language: {language}. You can change it in Settings.",
+  "@learnFilterNote": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "noCourses": "No courses for this language yet.",
+  "sourceLanguageHeading": "I speak",
+  "sourceLanguageHelp": "Choose your language to see the courses available for it."
 }

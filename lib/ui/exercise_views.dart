@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../audio/sounds.dart';
 import '../exercises/exercise.dart';
 import '../l10n/app_localizations.dart';
+import '../packs/models.dart';
 import 'lesson_parts.dart';
 
 /// Every exercise view takes its exercise and reports back through `onDone`
@@ -21,7 +22,7 @@ class ChoiceView extends StatefulWidget {
   State<ChoiceView> createState() => _ChoiceViewState();
 }
 
-class _ChoiceViewState extends State<ChoiceView> with AutoStart {
+class _ChoiceViewState extends State<ChoiceView> with AutoStart, ChimeLead {
   String? _selected;
   bool _checked = false;
 
@@ -86,9 +87,10 @@ class _ChoiceViewState extends State<ChoiceView> with AutoStart {
               if (correct) {
                 widget.lesson.sounds.play(Sound.correct);
                 if (_e.kind == ExerciseKind.translateToTarget) {
-                  widget.lesson.audio.play(_e.optionAudio[_selected] ?? const [], voiceId: _e.voiceId);
+                  final audio = _e.optionAudio[_selected] ?? const <Recording>[];
+                  speakAfterChime(() => widget.lesson.audio.play(audio, voiceId: _e.voiceId));
                 } else {
-                  _play();
+                  speakAfterChime(_play);
                 }
               }
             },
@@ -113,7 +115,7 @@ class BuildView extends StatefulWidget {
   State<BuildView> createState() => _BuildViewState();
 }
 
-class _BuildViewState extends State<BuildView> {
+class _BuildViewState extends State<BuildView> with ChimeLead {
   /// Indices into the bank, in the order the learner placed them.
   final List<int> _placed = [];
   bool _checked = false;
@@ -195,8 +197,13 @@ class _BuildViewState extends State<BuildView> {
             correctAnswer: _e.answerText,
             onCheck: () {
               setState(() => _checked = true);
-              if (_e.isCorrect(_built)) widget.lesson.sounds.play(Sound.correct);
-              widget.lesson.audio.play(_e.audio, voiceId: _e.voiceId);
+              void speak() => widget.lesson.audio.play(_e.audio, voiceId: _e.voiceId);
+              if (_e.isCorrect(_built)) {
+                widget.lesson.sounds.play(Sound.correct);
+                speakAfterChime(speak);
+              } else {
+                speak();
+              }
             },
             onContinue: () => widget.onDone(correct),
           ),

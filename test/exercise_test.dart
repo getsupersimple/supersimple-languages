@@ -124,6 +124,90 @@ void main() {
     expect(voices, {'placeholder-f', 'placeholder-m'});
   });
 
+  group('gendered phrases are only voiced by a voice of that gender', () {
+    const gender = {'placeholder-m': 'male', 'placeholder-f': 'female'};
+
+    // "Umoran sam" is the male speaker's phrase, "Umorna sam" the female speaker's.
+    String? speakerOf(String text) => switch (text) {
+          'Umoran sam' => 'male',
+          'Umorna sam' => 'female',
+          _ => null,
+        };
+
+    void expectSpeaker(String speaker, List<Recording> audio, String? voiceId, String where) {
+      expect(audio, isNotEmpty, reason: where);
+      expect(audio.map((r) => r.gender).toSet(), {speaker}, reason: '$where: recordings');
+      expect(gender[voiceId], speaker, reason: '$where: voice');
+      expect(chooseRecording(audio, voiceId)!.gender, speaker, reason: '$where: played');
+    }
+
+    test('the fixture voices both genders for every phrase, so the rule is what filters', () {
+      for (final p in greetings.pack.phrases.where((p) => p.variant != null)) {
+        expect(p.audio.map((r) => r.gender).toSet(), {'male', 'female'}, reason: '${p.concept}.${p.variant}');
+      }
+    });
+
+    test('listen, type, build, intro and the translated-from-Serbian choices', () {
+      var checked = 0;
+      for (var seed = 0; seed < 40; seed++) {
+        final lesson = plan(seed, max: 100);
+        for (final card in lesson.intro) {
+          final speaker = speakerOf(card.target);
+          if (speaker == null) continue;
+          expectSpeaker(speaker, card.audio, card.voiceId, 'intro ${card.target}');
+          for (final tile in card.tiles) {
+            expect(chooseRecording(tile.audio, card.voiceId)!.gender, speaker, reason: 'intro tile ${tile.text}');
+          }
+          checked++;
+        }
+        for (final e in lesson.exercises) {
+          switch (e) {
+            case TypeExercise():
+              final speaker = speakerOf(e.answer);
+              if (speaker == null) continue;
+              expectSpeaker(speaker, e.audio, e.voiceId, 'type ${e.answer}');
+              checked++;
+            case BuildSentenceExercise():
+              final speaker = speakerOf(e.answerText);
+              if (speaker == null) continue;
+              expectSpeaker(speaker, e.audio, e.voiceId, 'build ${e.answerText}');
+              for (final tile in e.bank) {
+                expect(chooseRecording(tile.audio, e.voiceId)!.gender, speaker, reason: 'tile ${tile.text}');
+              }
+              checked++;
+            case ChoiceExercise() when e.kind != ExerciseKind.translateToTarget:
+              final speaker = speakerOf(e.prompt) ?? (e.hidesPrompt ? speakerOf(e.answer) : null);
+              if (e.kind == ExerciseKind.translateFromTarget && speaker != null) {
+                expectSpeaker(speaker, e.audio, e.voiceId, 'choice ${e.prompt}');
+                checked++;
+              }
+            case ChoiceExercise():
+              // English prompt, Serbian options: each option is heard in its own speaker's voice.
+              for (final option in e.options) {
+                final speaker = speakerOf(option);
+                if (speaker == null) continue;
+                expect(e.optionAudio[option]!.map((r) => r.gender).toSet(), {speaker}, reason: 'option $option');
+                checked++;
+              }
+            case MatchPairsExercise():
+              break;
+          }
+        }
+      }
+      expect(checked, greaterThan(10), reason: 'the gendered phrases were actually exercised');
+    });
+
+    test('other phrases still get both voices at random', () {
+      final voices = <String?>{};
+      for (var seed = 0; seed < 40; seed++) {
+        for (final e in plan(seed).exercises.whereType<TypeExercise>().where((e) => speakerOf(e.answer) == null)) {
+          voices.add(e.voiceId);
+        }
+      }
+      expect(voices, {'placeholder-f', 'placeholder-m'});
+    });
+  });
+
   test('chooseRecording falls back to the first recording', () {
     final recordings = greetings.pack.phrases.first.audio;
     expect(chooseRecording(recordings, 'nobody'), same(recordings.first));
@@ -190,6 +274,12 @@ void main() {
       expect(normalizeAnswer('Dobro veče'), normalizeAnswer('dobro vece'));
       expect(normalizeAnswer('Ćao, šta ima'), normalizeAnswer('cao sta ima'));
       expect(normalizeAnswer('Đurđevdan'), normalizeAnswer('djurdjevdan'));
+    });
+
+    test('lets an English keyboard type French letters and hyphens', () {
+      expect(normalizeAnswer('Où sont les toilettes ?'), normalizeAnswer('ou sont les toilettes'));
+      expect(normalizeAnswer('Parlez-vous anglais ?'), normalizeAnswer('parlez vous anglais'));
+      expect(normalizeAnswer('Je suis fatiguée'), normalizeAnswer('je suis fatiguee'));
     });
 
     test('keeps Cyrillic letters', () {

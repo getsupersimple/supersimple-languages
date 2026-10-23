@@ -10,6 +10,7 @@ import 'package:languages/exercises/exercise.dart';
 import 'package:languages/packs/models.dart';
 import 'package:languages/packs/pack_source.dart';
 import 'package:languages/packs/pack_store.dart';
+import 'package:languages/settings/settings.dart';
 import 'package:languages/ui/lesson_screen.dart';
 
 import 'support.dart';
@@ -55,10 +56,22 @@ void main() {
   });
 
   group('home', () {
-    testWidgets('lists the course units in English', (tester) async {
+    Future<void> openSerbian(WidgetTester tester) => tapAndSettle(tester, find.text('Srpski'));
+
+    testWidgets('starts on the languages to learn, as flags', (tester) async {
       await pumpApp(tester, services);
 
       expect(find.text('Supersimple Languages'), findsOneWidget);
+      expect(find.text('What do you want to learn?'), findsOneWidget);
+      expect(find.text('🇷🇸'), findsOneWidget);
+      expect(find.text('Srpski'), findsOneWidget);
+      expect(find.textContaining('Your language: English'), findsOneWidget);
+    });
+
+    testWidgets('a language opens its course units', (tester) async {
+      await pumpApp(tester, services);
+      await openSerbian(tester);
+
       expect(find.text('Serbian for Tourists'), findsOneWidget);
       expect(find.text('Greetings and basics'), findsOneWidget);
       expect(find.textContaining('4 phrases'), findsOneWidget);
@@ -69,21 +82,65 @@ void main() {
       tester.platformDispatcher.localesTestValue = const [Locale('fr')];
       await pumpApp(tester, services);
 
+      expect(find.text('Que voulez-vous apprendre ?'), findsOneWidget);
+      expect(find.text('Apprendre'), findsOneWidget);
+      await openSerbian(tester);
       expect(find.text('Unités'), findsOneWidget);
       expect(find.textContaining('Touchez pour télécharger'), findsNWidgets(2));
-      // Course content follows the course, not the UI: there is no French
-      // layer yet, so the title falls back to English.
+      // Course content follows the learner's source language, not the UI: the
+      // test pack has no French text, so the title falls back to English.
       expect(find.text('Serbian for Tourists'), findsOneWidget);
+    });
+
+    testWidgets('the settings tab shows the source language and saves a choice', (tester) async {
+      await pumpApp(tester, services);
+      await tapAndSettle(tester, find.text('Settings'));
+
+      expect(find.text('I speak'), findsOneWidget);
+      final menu = tester.widget<DropdownMenu<String>>(find.byType(DropdownMenu<String>));
+      expect(menu.initialSelection, 'en');
+      expect(menu.dropdownMenuEntries.map((e) => e.value), ['en']);
+      expect(services.settings.sourceLanguage, isNull);
+
+      // Opening the menu lists every source language, with its flag.
+      await tester.tap(find.byIcon(Icons.arrow_drop_down).first);
+      await tester.pumpAndSettle();
+      expect(find.text('🇬🇧'), findsWidgets);
+      expect(find.text('English'), findsWidgets);
     });
 
     testWidgets('tapping a unit downloads it and opens its lesson', (tester) async {
       await pumpApp(tester, services);
+      await openSerbian(tester);
       await tapAndSettle(tester, find.text('Food and getting around'));
       expect(find.text('New phrase'), findsOneWidget);
       expect(find.byType(LessonScreen), findsOneWidget);
       // The first card plays its phrase.
       expect(player.played, isNotEmpty);
       expect(player.played.first, endsWith('.m4a'));
+    });
+  });
+
+  group('settings', () {
+    test('the source language is the choice, else the UI language, else English', () {
+      expect(resolveSourceLanguage('fr', ['en', 'fr'], 'en'), 'fr');
+      expect(resolveSourceLanguage(null, ['en', 'fr'], 'fr'), 'fr');
+      expect(resolveSourceLanguage(null, ['en', 'fr'], 'de'), 'en');
+      expect(resolveSourceLanguage('fr', ['en'], 'en'), 'en');
+      expect(resolveSourceLanguage(null, ['sr'], 'de'), 'sr');
+    });
+
+    test('a chosen source language survives a restart', () async {
+      final file = File('${tmp.path}/settings.json');
+      final settings = await AppSettings.load(file);
+      expect(settings.sourceLanguage, isNull);
+      await settings.setSourceLanguage('fr');
+      expect((await AppSettings.load(file)).sourceLanguage, 'fr');
+    });
+
+    test('an unreadable settings file means defaults', () async {
+      final file = File('${tmp.path}/settings.json')..writeAsStringSync('not json');
+      expect((await AppSettings.load(file)).sourceLanguage, isNull);
     });
   });
 
@@ -217,6 +274,8 @@ void main() {
       expect(player.played, isEmpty, reason: 'selecting does not speak it either');
       await tester.tap(find.text('Check'));
       await tester.pump();
+      expect(player.played, isEmpty, reason: 'the phrase waits for the chime');
+      await tester.pump(chimeLead);
       expect(player.played, hasLength(1));
       expect(player.played.single, contains(chooseRecording(e.audio, e.voiceId)!.file));
     });
@@ -239,6 +298,8 @@ void main() {
       await tester.pump();
       await tester.tap(find.text('Check'));
       await tester.pump();
+      expect(player.played, hasLength(1), reason: 'the repeat waits for the chime');
+      await tester.pump(chimeLead);
       expect(player.played, hasLength(2), reason: 'once at the start, once on the correct check');
       expect(player.played.last, contains(chooseRecording(e.audio, e.voiceId)!.file));
     });
@@ -261,6 +322,8 @@ void main() {
       expect(player.played, isEmpty, reason: 'selecting does not speak it');
       await tester.tap(find.text('Check'));
       await tester.pump();
+      expect(player.played, isEmpty, reason: 'the phrase waits for the chime');
+      await tester.pump(chimeLead);
       expect(player.played, hasLength(1));
       expect(player.played.single, contains(chooseRecording(e.optionAudio[e.answer]!, e.voiceId)!.file));
     });
@@ -333,6 +396,19 @@ void main() {
         await tester.pump();
       }
       expect(sounds.played, [Sound.correct], reason: 'match correct');
+    });
+
+    testWidgets('continuing before the delay ends cancels the pending phrase', (tester) async {
+      final e = pick<ChoiceExercise>(greetings, (c) => c.kind == ExerciseKind.translateFromTarget);
+      await pumpLesson(tester, greetings, only(e));
+      await tester.tap(find.text(e.answer));
+      await tester.pump();
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+      await tester.tap(find.text('Continue'));
+      await next(tester);
+      await tester.pump(chimeLead * 2);
+      expect(player.played, isEmpty);
     });
 
     testWidgets('the ring plays once when the unit is finished, not before', (tester) async {
