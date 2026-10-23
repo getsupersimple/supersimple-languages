@@ -128,6 +128,7 @@ class _UnitCardState extends State<_UnitCard> {
       setState(() => _installed = true);
       await navigator.push(MaterialPageRoute<void>(
         builder: (_) => LessonScreen(
+          sounds: widget.services.sounds,
           content: content,
           audio: LessonAudio(
             player: widget.services.audio,

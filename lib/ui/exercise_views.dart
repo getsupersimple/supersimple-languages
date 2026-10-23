@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../audio/sounds.dart';
 import '../exercises/exercise.dart';
 import '../l10n/app_localizations.dart';
 import 'lesson_parts.dart';
@@ -83,6 +84,7 @@ class _ChoiceViewState extends State<ChoiceView> with AutoStart {
               // A correct answer is confirmed by saying the target phrase: the prompt when the
               // options are English, the chosen option when they are Serbian.
               if (correct) {
+                widget.lesson.sounds.play(Sound.correct);
                 if (_e.kind == ExerciseKind.translateToTarget) {
                   widget.lesson.audio.play(_e.optionAudio[_selected] ?? const [], voiceId: _e.voiceId);
                 } else {
@@ -193,6 +195,7 @@ class _BuildViewState extends State<BuildView> {
             correctAnswer: _e.answerText,
             onCheck: () {
               setState(() => _checked = true);
+              if (_e.isCorrect(_built)) widget.lesson.sounds.play(Sound.correct);
               widget.lesson.audio.play(_e.audio, voiceId: _e.voiceId);
             },
             onContinue: () => widget.onDone(correct),
@@ -248,6 +251,8 @@ class _MatchViewState extends State<MatchView> {
         _wrongRight = j;
       }
     });
+    // Finishing every pair without a mistake counts as a correct answer.
+    if (_done && _mistakes == 0) widget.lesson.sounds.play(Sound.correct);
   }
 
   bool _rightMatched(int j) =>
@@ -388,7 +393,10 @@ class _TypeViewState extends State<TypeView> with AutoStart {
             checked: _checked,
             correct: correct,
             correctAnswer: _e.answer,
-            onCheck: () => setState(() => _checked = true),
+            onCheck: () {
+              setState(() => _checked = true);
+              if (_e.isCorrect(_controller.text)) widget.lesson.sounds.play(Sound.correct);
+            },
             onContinue: () => widget.onDone(correct),
           ),
         ],

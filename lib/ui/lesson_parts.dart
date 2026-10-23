@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../audio/audio.dart';
+import '../audio/sounds.dart';
 import '../exercises/exercise.dart';
 import '../l10n/app_localizations.dart';
 import '../packs/models.dart';
@@ -8,10 +9,16 @@ import 'grammar.dart';
 
 /// What every exercise view needs besides its own exercise.
 class LessonContext {
-  const LessonContext({required this.content, required this.audio, required this.script});
+  const LessonContext({
+    required this.content,
+    required this.audio,
+    this.sounds = const SilentSoundPlayer(),
+    required this.script,
+  });
 
   final UnitContent content;
   final LessonAudio audio;
+  final SoundPlayer sounds;
   final String script;
 }
 

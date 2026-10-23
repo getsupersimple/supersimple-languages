@@ -3,12 +3,14 @@ import 'package:path_provider/path_provider.dart';
 
 import 'app.dart';
 import 'audio/audio.dart';
+import 'audio/sounds.dart';
 import 'packs/pack_source.dart';
 import 'packs/pack_store.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final support = await getApplicationSupportDirectory();
+  final sounds = JustAudioSoundPlayer()..preload();
   runApp(
     SupersimpleApp(
       services: AppServices(
@@ -16,6 +18,7 @@ Future<void> main() async {
         source: AssetPackSource('assets/dev_pack'),
         store: PackStore(support),
         audio: JustAudioPlayerService(),
+        sounds: sounds,
       ),
     ),
   );

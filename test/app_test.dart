@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:languages/app.dart';
 import 'package:languages/audio/audio.dart';
+import 'package:languages/audio/sounds.dart';
 import 'package:languages/exercises/exercise.dart';
 import 'package:languages/packs/models.dart';
 import 'package:languages/packs/pack_source.dart';
@@ -90,16 +91,18 @@ void main() {
     late UnitContent greetings;
     late UnitContent food;
     late LessonAudio audio;
+    late FakeSoundPlayer sounds;
 
     setUp(() async {
       greetings = await loadDevUnit(tmp, 'greetings-and-basics');
       food = await loadDevUnit(tmp, 'food-and-getting-around');
       audio = LessonAudio(player: player, pathFor: (r) => 'audio/${r.file}');
+      sounds = FakeSoundPlayer();
     });
 
     Future<void> pumpLesson(WidgetTester tester, UnitContent content, LessonPlan plan, {Locale? locale}) async {
       if (locale != null) tester.platformDispatcher.localesTestValue = [locale];
-      await tester.pumpWidget(testApp(LessonScreen(content: content, audio: audio, plan: plan)));
+      await tester.pumpWidget(testApp(LessonScreen(content: content, audio: audio, sounds: sounds, plan: plan)));
       await tester.pump();
     }
 
@@ -260,6 +263,91 @@ void main() {
       await tester.pump();
       expect(player.played, hasLength(1));
       expect(player.played.single, contains(chooseRecording(e.optionAudio[e.answer]!, e.voiceId)!.file));
+    });
+
+    testWidgets('the chime plays on a correct check and never on a wrong one, for every exercise type', (tester) async {
+      Future<void> check() async {
+        await tester.tap(find.text('Check'));
+        await tester.pump();
+      }
+
+      Future<void> restart(Exercise e) async {
+        await tester.pumpWidget(const SizedBox());
+        sounds.played.clear();
+        await pumpLesson(tester, greetings, only(e));
+      }
+
+      // Multiple choice, English or Serbian options.
+      for (final kind in ExerciseKind.values) {
+        final e = pick<ChoiceExercise>(greetings, (c) => c.kind == kind);
+        await restart(e);
+        await tester.tap(find.text(e.options.firstWhere((o) => !e.isCorrect(o))));
+        await tester.pump();
+        await check();
+        expect(sounds.played, isEmpty, reason: '$kind wrong');
+
+        await restart(e);
+        await tester.tap(find.text(e.answer));
+        await tester.pump();
+        expect(sounds.played, isEmpty, reason: '$kind selecting is silent');
+        await check();
+        expect(sounds.played, [Sound.correct], reason: '$kind correct');
+      }
+
+      // Build the sentence.
+      final build = pick<BuildSentenceExercise>(greetings, (b) => b.answer.length == 3);
+      await restart(build);
+      await tester.tap(find.byKey(const ValueKey('bank-0')));
+      await tester.pump();
+      await check();
+      expect(sounds.played, isEmpty, reason: 'build wrong');
+      await restart(build);
+      for (final tile in build.answer) {
+        await tester.tap(find.byKey(ValueKey('bank-${build.bank.indexWhere((t) => t.text == tile.text)}')));
+        await tester.pump();
+      }
+      await check();
+      expect(sounds.played, [Sound.correct], reason: 'build correct');
+
+      // Type what you hear.
+      final type = pick<TypeExercise>(greetings, (_) => true);
+      await restart(type);
+      await tester.enterText(find.byType(TextField), 'completely wrong');
+      await tester.pump();
+      await check();
+      expect(sounds.played, isEmpty, reason: 'type wrong');
+      await restart(type);
+      await tester.enterText(find.byType(TextField), type.answer);
+      await tester.pump();
+      await check();
+      expect(sounds.played, [Sound.correct], reason: 'type correct');
+
+      // Match pairs: the chime comes when every pair is matched without a mistake.
+      final match = pick<MatchPairsExercise>(greetings, (_) => true);
+      await restart(match);
+      for (final pair in match.pairs) {
+        await tester.tap(find.text(pair.target));
+        await tester.pump();
+        expect(sounds.played, isEmpty, reason: 'match: not before the last pair');
+        await tester.tap(find.text(pair.gloss));
+        await tester.pump();
+      }
+      expect(sounds.played, [Sound.correct], reason: 'match correct');
+    });
+
+    testWidgets('the ring plays once when the unit is finished, not before', (tester) async {
+      final e = pick<ChoiceExercise>(greetings, (c) => c.kind == ExerciseKind.translateFromTarget);
+      await pumpLesson(tester, greetings, only(e));
+      await tester.tap(find.text(e.answer));
+      await tester.pump();
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+      expect(sounds.played, [Sound.correct], reason: 'no ring before continuing');
+
+      await tester.tap(find.text('Continue'));
+      await next(tester);
+      expect(find.text('Lesson complete!'), findsOneWidget);
+      expect(sounds.played, [Sound.correct, Sound.unitComplete]);
     });
 
     testWidgets('every tile press in the build exercise speaks the word as written, placing or removing', (tester) async {

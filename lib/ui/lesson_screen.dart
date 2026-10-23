@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../audio/audio.dart';
+import '../audio/sounds.dart';
 import '../exercises/exercise.dart';
 import '../l10n/app_localizations.dart';
 import '../packs/models.dart';
@@ -12,12 +13,14 @@ class LessonScreen extends StatefulWidget {
     super.key,
     required this.content,
     required this.audio,
+    this.sounds = const SilentSoundPlayer(),
     this.plan,
     this.script = 'Latn',
   });
 
   final UnitContent content;
   final LessonAudio audio;
+  final SoundPlayer sounds;
 
   /// Defaults to a freshly generated lesson; tests pass a fixed plan.
   final LessonPlan? plan;
@@ -30,7 +33,7 @@ class LessonScreen extends StatefulWidget {
 class _LessonScreenState extends State<LessonScreen> {
   late final LessonPlan _plan = widget.plan ?? generateLesson(widget.content, script: widget.script);
   late final LessonContext _lesson =
-      LessonContext(content: widget.content, audio: widget.audio, script: widget.script);
+      LessonContext(content: widget.content, audio: widget.audio, sounds: widget.sounds, script: widget.script);
   int _step = 0;
   int _correct = 0;
 
@@ -42,10 +45,13 @@ class _LessonScreenState extends State<LessonScreen> {
     super.dispose();
   }
 
-  void _advance({bool? correct}) => setState(() {
-        if (correct == true) _correct++;
-        _step++;
-      });
+  void _advance({bool? correct}) {
+    setState(() {
+      if (correct == true) _correct++;
+      _step++;
+    });
+    if (_finished) widget.sounds.play(Sound.unitComplete);
+  }
 
   Widget _stepView() {
     final key = ValueKey(_step);

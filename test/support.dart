@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:languages/audio/audio.dart';
+import 'package:languages/audio/sounds.dart';
 import 'package:languages/l10n/app_localizations.dart';
 import 'package:languages/packs/models.dart';
 import 'package:languages/packs/pack_source.dart';
@@ -17,6 +18,17 @@ class FakeAudioPlayer implements AudioPlayerService {
 
   @override
   Future<void> stop() async => stops++;
+
+  @override
+  Future<void> dispose() async {}
+}
+
+/// Records the feedback sounds that would have been played.
+class FakeSoundPlayer implements SoundPlayer {
+  final List<Sound> played = [];
+
+  @override
+  Future<void> play(Sound sound) async => played.add(sound);
 
   @override
   Future<void> dispose() async {}

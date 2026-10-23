@@ -65,3 +65,5 @@ flutter:
     # Real packs are downloaded; this stands in for the download until it exists.
     - assets/dev_pack/
     - assets/dev_pack/courses/tourist-sr/
+    # Feedback sounds (correct answer, unit finished), encoded by the content repo's tools/encode_audio.py.
+    - assets/sounds/
