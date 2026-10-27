@@ -40,11 +40,16 @@ class JustAudioSoundPlayer implements SoundPlayer {
     Sound.unitComplete: 'assets/sounds/success-ring.m4a',
   };
 
+  /// Player volume per sound; unlisted sounds play at full volume.
+  static const _volumes = {Sound.correct: 0.8};
+
   final Map<Sound, Future<AudioPlayer>> _players = {};
 
-  Future<AudioPlayer> _load(Sound sound) => _players.putIfAbsent(sound, () async {
+  Future<AudioPlayer> _load(Sound sound) =>
+      _players.putIfAbsent(sound, () async {
         final player = AudioPlayer();
         await player.setAsset(_assets[sound]!);
+        await player.setVolume(_volumes[sound] ?? 1);
         return player;
       });
 

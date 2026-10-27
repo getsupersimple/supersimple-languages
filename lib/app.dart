@@ -35,7 +35,8 @@ class SupersimpleApp extends StatelessWidget {
     return MaterialApp(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       theme: buildTheme(Brightness.light),
-      darkTheme: buildTheme(Brightness.dark),
+      // Always light: the mascot images have white backgrounds that clash with a dark page.
+      themeMode: ThemeMode.light,
       // No locale set: the UI follows the system language. A settings override comes later.
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

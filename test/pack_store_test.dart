@@ -56,12 +56,20 @@ void main() {
     expect(course.id, 'tourist-sr');
     expect(course.targetLanguage, 'sr');
     expect(course.sources, ['en']);
-    expect(course.units.map((u) => u.id), ['greetings-and-basics', 'food-and-getting-around']);
+    expect(course.units.map((u) => u.id), [
+      'greetings-and-basics',
+      'food-and-getting-around',
+    ]);
   });
 
   test('installs a unit and reads it back', () async {
     expect(await store.isInstalled(course, unit, 'en'), isFalse);
-    await store.installUnit(source: source, course: course, unit: unit, sourceLanguage: 'en');
+    await store.installUnit(
+      source: source,
+      course: course,
+      unit: unit,
+      sourceLanguage: 'en',
+    );
     expect(await store.isInstalled(course, unit, 'en'), isTrue);
 
     final content = await store.loadUnit(course, unit, 'en');
@@ -69,34 +77,61 @@ void main() {
     expect(content.pack.lemmas.keys, contains('sr:dobar'));
     expect(content.text.glosses['sr:dobar']!.gloss, 'good');
 
-    final good = content.pack.phrases.firstWhere((p) => p.concept == 'good-day');
+    final good = content.pack.phrases.firstWhere(
+      (p) => p.concept == 'good-day',
+    );
     expect(pickScript(good.text, 'Latn'), 'Dobar dan');
     expect(pickScript(good.text, 'Cyrl'), 'Добар дан');
     expect(pickScript(content.sourceTextFor(good)!, 'Latn'), 'Good day');
   });
 
   test('a source entry without a variant applies to every variant', () async {
-    await store.installUnit(source: source, course: course, unit: unit, sourceLanguage: 'en');
+    await store.installUnit(
+      source: source,
+      course: course,
+      unit: unit,
+      sourceLanguage: 'en',
+    );
     final content = await store.loadUnit(course, unit, 'en');
-    final tired = content.pack.phrases.where((p) => p.concept == 'i-am-tired').toList();
+    final tired = content.pack.phrases
+        .where((p) => p.concept == 'i-am-tired')
+        .toList();
     expect(tired.map((p) => p.variant), ['m', 'f']);
-    expect(tired.map((p) => pickScript(content.sourceTextFor(p)!, 'Latn')), ["I'm tired", "I'm tired"]);
+    expect(tired.map((p) => pickScript(content.sourceTextFor(p)!, 'Latn')), [
+      "I'm tired",
+      "I'm tired",
+    ]);
   });
 
   test('a corrupted download is rejected', () async {
     final flaky = _FlakySource(source, corrupt: {unit.target.path});
     await expectLater(
-      store.installUnit(source: flaky, course: course, unit: unit, sourceLanguage: 'en'),
+      store.installUnit(
+        source: flaky,
+        course: course,
+        unit: unit,
+        sourceLanguage: 'en',
+      ),
       throwsA(isA<PackIntegrityException>()),
     );
     expect(await store.isInstalled(course, unit, 'en'), isFalse);
   });
 
   test('a failed update leaves the working install untouched', () async {
-    await store.installUnit(source: source, course: course, unit: unit, sourceLanguage: 'en');
+    await store.installUnit(
+      source: source,
+      course: course,
+      unit: unit,
+      sourceLanguage: 'en',
+    );
     final flaky = _FlakySource(source, corrupt: {unit.text['en']!.path});
     await expectLater(
-      store.installUnit(source: flaky, course: course, unit: unit, sourceLanguage: 'en'),
+      store.installUnit(
+        source: flaky,
+        course: course,
+        unit: unit,
+        sourceLanguage: 'en',
+      ),
       throwsA(isA<PackIntegrityException>()),
     );
     expect(await store.isInstalled(course, unit, 'en'), isTrue);
@@ -104,12 +139,21 @@ void main() {
   });
 
   test('a changed hash in the manifest makes the unit stale', () async {
-    await store.installUnit(source: source, course: course, unit: unit, sourceLanguage: 'en');
+    await store.installUnit(
+      source: source,
+      course: course,
+      unit: unit,
+      sourceLanguage: 'en',
+    );
     final updated = UnitInfo(
       id: unit.id,
       title: unit.title,
       concepts: unit.concepts,
-      target: FileRef(path: unit.target.path, sha256: 'a' * 64, size: unit.target.size),
+      target: FileRef(
+        path: unit.target.path,
+        sha256: 'a' * 64,
+        size: unit.target.size,
+      ),
       text: unit.text,
     );
     expect(await store.isInstalled(course, updated, 'en'), isFalse);
@@ -117,12 +161,19 @@ void main() {
 
   test('a zip entry that escapes the unit folder is rejected', () async {
     final archive = Archive()
-      ..addFile(ArchiveFile.bytes('unit.json', Uint8List.fromList('{}'.codeUnits)))
-      ..addFile(ArchiveFile.bytes('../evil.txt', Uint8List.fromList('x'.codeUnits)));
+      ..addFile(
+        ArchiveFile.bytes('unit.json', Uint8List.fromList('{}'.codeUnits)),
+      )
+      ..addFile(
+        ArchiveFile.bytes('../evil.txt', Uint8List.fromList('x'.codeUnits)),
+      );
     final zip = Uint8List.fromList(ZipEncoder().encode(archive));
     final text = Uint8List.fromList('{}'.codeUnits);
-    FileRef ref(String path, Uint8List bytes) =>
-        FileRef(path: path, sha256: sha256.convert(bytes).toString(), size: bytes.length);
+    FileRef ref(String path, Uint8List bytes) => FileRef(
+      path: path,
+      sha256: sha256.convert(bytes).toString(),
+      size: bytes.length,
+    );
 
     final evil = UnitInfo(
       id: 'evil',
@@ -140,7 +191,15 @@ void main() {
       ),
       throwsA(isA<PackIntegrityException>()),
     );
-    expect(File('${tmp.path}/packs/${course.id}/evil.txt').existsSync(), isFalse);
-    expect(File('${tmp.path}/packs/${course.id}/evil/target/../evil.txt').existsSync(), isFalse);
+    expect(
+      File('${tmp.path}/packs/${course.id}/evil.txt').existsSync(),
+      isFalse,
+    );
+    expect(
+      File(
+        '${tmp.path}/packs/${course.id}/evil/target/../evil.txt',
+      ).existsSync(),
+      isFalse,
+    );
   });
 }

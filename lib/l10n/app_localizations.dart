@@ -176,6 +176,24 @@ abstract class AppLocalizations {
   /// **'Not quite'**
   String get incorrectFeedback;
 
+  /// No description provided for @closeFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Close!'**
+  String get closeFeedback;
+
+  /// No description provided for @showAnswerButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Show answer'**
+  String get showAnswerButton;
+
+  /// No description provided for @answerFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer'**
+  String get answerFeedback;
+
   /// No description provided for @correctAnswerWas.
   ///
   /// In en, this message translates to:

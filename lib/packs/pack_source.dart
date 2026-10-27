@@ -16,7 +16,8 @@ abstract class PackSource {
 }
 
 class AssetPackSource implements PackSource {
-  AssetPackSource(this.prefix, {AssetBundle? bundle}) : _bundle = bundle ?? rootBundle;
+  AssetPackSource(this.prefix, {AssetBundle? bundle})
+    : _bundle = bundle ?? rootBundle;
 
   final String prefix;
   final AssetBundle _bundle;

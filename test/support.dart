@@ -35,18 +35,29 @@ class FakeSoundPlayer implements SoundPlayer {
 }
 
 /// Installs the bundled dev pack into [tmp] and loads one unit.
-Future<UnitContent> loadDevUnit(Directory tmp, String unitId, {String sourceLanguage = 'en'}) async {
-  final source = DirectoryPackSource(Directory('test/fixtures/placeholder_pack'));
+Future<UnitContent> loadDevUnit(
+  Directory tmp,
+  String unitId, {
+  String sourceLanguage = 'en',
+}) async {
+  final source = DirectoryPackSource(
+    Directory('test/fixtures/placeholder_pack'),
+  );
   final store = PackStore(tmp);
   final course = (await loadManifest(source)).courses.first;
   final unit = course.units.firstWhere((u) => u.id == unitId);
-  await store.installUnit(source: source, course: course, unit: unit, sourceLanguage: sourceLanguage);
+  await store.installUnit(
+    source: source,
+    course: course,
+    unit: unit,
+    sourceLanguage: sourceLanguage,
+  );
   return store.loadUnit(course, unit, sourceLanguage);
 }
 
 /// Wraps [child] in a localized MaterialApp.
 Widget testApp(Widget child) => MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: child,
-    );
+  localizationsDelegates: AppLocalizations.localizationsDelegates,
+  supportedLocales: AppLocalizations.supportedLocales,
+  home: child,
+);

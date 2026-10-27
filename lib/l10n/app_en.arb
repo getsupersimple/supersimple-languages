@@ -20,6 +20,9 @@
   "continueButton": "Continue",
   "correctFeedback": "Correct!",
   "incorrectFeedback": "Not quite",
+  "closeFeedback": "Close!",
+  "showAnswerButton": "Show answer",
+  "answerFeedback": "Answer",
   "correctAnswerWas": "Correct answer: {answer}",
   "@correctAnswerWas": {
     "placeholders": {

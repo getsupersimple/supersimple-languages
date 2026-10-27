@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.1.0+2
 
 environment:
   sdk: ^3.12.2
@@ -33,7 +33,6 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
@@ -66,5 +65,19 @@ flutter:
     - assets/dev_pack/
     - assets/dev_pack/courses/tourist-sr/
     - assets/dev_pack/courses/tourist-fr/
+    - assets/dev_pack/courses/tourist-en/
+    - assets/dev_pack/courses/tourist-de/
+    - assets/dev_pack/courses/tourist-sv/
+    - assets/dev_pack/courses/tourist-ja/
+    - assets/dev_pack/courses/tourist-ur/
     # Feedback sounds (correct answer, unit finished), encoded by the content repo's tools/encode_audio.py.
     - assets/sounds/
+    # The pangolin mascot, one pose per file, sliced from the artist's sprite sheet.
+    - assets/mascot/
+    # Christmas outfits, shown from 1 December to 2 January.
+    - assets/mascot/christmas/
+    # Valentine outfits, shown from 1 to 14 February.
+    - assets/mascot/valentine/
+    # Easter and Lunar New Year outfits; the dates are in lib/ui/mascot.dart.
+    - assets/mascot/easter/
+    - assets/mascot/lunar-new-year/

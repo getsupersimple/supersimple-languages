@@ -42,12 +42,18 @@ class PackStore {
   String _lang(String language) => language.toLowerCase();
 
   /// True when the installed files are exactly the ones the manifest lists.
-  Future<bool> isInstalled(CourseInfo course, UnitInfo unit, String sourceLanguage) async {
+  Future<bool> isInstalled(
+    CourseInfo course,
+    UnitInfo unit,
+    String sourceLanguage,
+  ) async {
     final dir = _unitDir(course.id, unit.id);
     final textRef = unit.text[sourceLanguage];
     if (textRef == null) return false;
-    return await _read(File('${dir.path}/target.sha256')) == unit.target.sha256 &&
-        await _read(File('${dir.path}/text.${_lang(sourceLanguage)}.sha256')) == textRef.sha256 &&
+    return await _read(File('${dir.path}/target.sha256')) ==
+            unit.target.sha256 &&
+        await _read(File('${dir.path}/text.${_lang(sourceLanguage)}.sha256')) ==
+            textRef.sha256 &&
         await File('${dir.path}/target/unit.json').exists() &&
         await File('${dir.path}/text.${_lang(sourceLanguage)}.json').exists();
   }
@@ -60,7 +66,9 @@ class PackStore {
   }) async {
     final textRef = unit.text[sourceLanguage];
     if (textRef == null) {
-      throw ArgumentError('${course.id} has no "$sourceLanguage" text for ${unit.id}');
+      throw ArgumentError(
+        '${course.id} has no "$sourceLanguage" text for ${unit.id}',
+      );
     }
     final zipBytes = await source.fetch(unit.target.path);
     _verify(unit.target, zipBytes);
@@ -103,13 +111,23 @@ class PackStore {
     await File('${dir.path}/text.$lang.sha256').writeAsString(textRef.sha256);
   }
 
-  Future<UnitContent> loadUnit(CourseInfo course, UnitInfo unit, String sourceLanguage) async {
+  Future<UnitContent> loadUnit(
+    CourseInfo course,
+    UnitInfo unit,
+    String sourceLanguage,
+  ) async {
     final dir = _unitDir(course.id, unit.id);
     final pack = UnitPack.fromJson(
-      jsonDecode(await File('${dir.path}/target/unit.json').readAsString()) as Json,
+      jsonDecode(await File('${dir.path}/target/unit.json').readAsString())
+          as Json,
     );
     final text = UnitText.fromJson(
-      jsonDecode(await File('${dir.path}/text.${_lang(sourceLanguage)}.json').readAsString()) as Json,
+      jsonDecode(
+            await File(
+              '${dir.path}/text.${_lang(sourceLanguage)}.json',
+            ).readAsString(),
+          )
+          as Json,
     );
     return UnitContent(pack: pack, text: text);
   }
@@ -120,10 +138,14 @@ class PackStore {
 
   void _verify(FileRef ref, Uint8List bytes) {
     if (bytes.length != ref.size) {
-      throw PackIntegrityException('${ref.path}: ${bytes.length} bytes, expected ${ref.size}');
+      throw PackIntegrityException(
+        '${ref.path}: ${bytes.length} bytes, expected ${ref.size}',
+      );
     }
     if (sha256.convert(bytes).toString() != ref.sha256) {
-      throw PackIntegrityException('${ref.path}: checksum does not match the manifest');
+      throw PackIntegrityException(
+        '${ref.path}: checksum does not match the manifest',
+      );
     }
   }
 

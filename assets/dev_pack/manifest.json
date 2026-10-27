@@ -5,6 +5,658 @@
   "min_app_version": "1.0.0",
   "courses": [
     {
+      "id": "tourist-de",
+      "version": "0.1.0",
+      "min_app_version": "1.0.0",
+      "kind": "tourist",
+      "target_language": "de",
+      "title": {
+        "en": "German for Tourists",
+        "fr": "L'allemand pour les touristes",
+        "sr": "Nemački za turiste",
+        "de": "Deutsch für Touristen",
+        "sv": "Tyska för turister",
+        "ja": "旅行者のためのドイツ語",
+        "ur": "سیاحوں کے لیے جرمن"
+      },
+      "sources": [
+        "en",
+        "fr",
+        "ja",
+        "sr",
+        "sv",
+        "ur"
+      ],
+      "units": [
+        {
+          "id": "greetings-and-basics",
+          "title": {
+            "en": "Greetings and basics",
+            "fr": "Salutations et bases",
+            "sr": "Pozdravi i osnove",
+            "de": "Grüße und Grundlagen",
+            "sv": "Hälsningar och grunder",
+            "ja": "あいさつと基本",
+            "ur": "سلام دعا اور بنیادی باتیں"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-de/greetings-and-basics.zip",
+            "sha256": "f59c1900bd6a56333384a56b8ef0acce24af4cd2b73bdc2216f6ddc12f5a985b",
+            "size": 392926
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-de/greetings-and-basics.en.json",
+              "sha256": "189f3786000afd1d6b4b4843d9002c362d8c6164bde35fb746cdb6029c662c0e",
+              "size": 1929
+            },
+            "fr": {
+              "path": "courses/tourist-de/greetings-and-basics.fr.json",
+              "sha256": "80b16dd9c5fecb97f0257363daa79075e7369e995a30395ce4de6389d70de179",
+              "size": 2071
+            },
+            "ja": {
+              "path": "courses/tourist-de/greetings-and-basics.ja.json",
+              "sha256": "55e7754e20205b244d29bd15cb514707bf000185ea5fa1a8912b8ecd67471720",
+              "size": 1932
+            },
+            "sr": {
+              "path": "courses/tourist-de/greetings-and-basics.sr.json",
+              "sha256": "2cc80ba42d43ecc46720929dc6c15c81410d258e29c45dc0a1e826c775af0f69",
+              "size": 2303
+            },
+            "sv": {
+              "path": "courses/tourist-de/greetings-and-basics.sv.json",
+              "sha256": "cf8540737d21b45e6d6a90403efa645678e5c4aa44e457e6ac690d78522a3fe4",
+              "size": 1871
+            },
+            "ur": {
+              "path": "courses/tourist-de/greetings-and-basics.ur.json",
+              "sha256": "7ec7aa5df90117fc71e105daea6e8149e3a347d388d75485110143595a53a544",
+              "size": 2027
+            }
+          }
+        },
+        {
+          "id": "essentials-and-politeness",
+          "title": {
+            "en": "Essentials and politeness",
+            "fr": "L'essentiel et la politesse",
+            "sr": "Osnovno i učtivost",
+            "de": "Das Wichtigste und Höflichkeit",
+            "sv": "Det viktigaste och artighet",
+            "ja": "必須表現と礼儀",
+            "ur": "ضروری الفاظ اور آداب"
+          },
+          "concepts": 16,
+          "target": {
+            "path": "courses/tourist-de/essentials-and-politeness.zip",
+            "sha256": "80b54d13db4fa3cdd08614f8f21cd4c3132a99b81eca95c94ff2f9ced6f1825d",
+            "size": 583206
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-de/essentials-and-politeness.en.json",
+              "sha256": "42d2b7d4aaa4fbc38a1dd3f1f24686844f611cd70119f76684241e216933abfb",
+              "size": 2878
+            },
+            "fr": {
+              "path": "courses/tourist-de/essentials-and-politeness.fr.json",
+              "sha256": "c1fef1a36e6f8bec229c083b62b3b350c5e97ed65204a7c8a44cc67303cf228b",
+              "size": 2980
+            },
+            "ja": {
+              "path": "courses/tourist-de/essentials-and-politeness.ja.json",
+              "sha256": "6c0efe16f2eeb59d9fec1d8e952b5b07333246e3991cbc0cbc94aeca4a9764e5",
+              "size": 2927
+            },
+            "sr": {
+              "path": "courses/tourist-de/essentials-and-politeness.sr.json",
+              "sha256": "c37a50225c4007a26cb9d7bcb8cf70d87476ca9f478941bd1213bc52cf7cf036",
+              "size": 3256
+            },
+            "sv": {
+              "path": "courses/tourist-de/essentials-and-politeness.sv.json",
+              "sha256": "8a2c8f34dfaa63efb48feb97519b1f6890fd48a6cd547784b294326241415a0d",
+              "size": 2825
+            },
+            "ur": {
+              "path": "courses/tourist-de/essentials-and-politeness.ur.json",
+              "sha256": "76a34c4a254e219769570a724cea08384f90bda0ad54a2441ad55ce40bfd73f4",
+              "size": 2938
+            }
+          }
+        },
+        {
+          "id": "directions-and-transport",
+          "title": {
+            "en": "Directions and transport",
+            "fr": "Directions et transports",
+            "sr": "Pravci i prevoz",
+            "de": "Wegbeschreibung und Verkehr",
+            "sv": "Vägbeskrivningar och transport",
+            "ja": "道案内と交通",
+            "ur": "راستے اور سفر"
+          },
+          "concepts": 17,
+          "target": {
+            "path": "courses/tourist-de/directions-and-transport.zip",
+            "sha256": "af36adc20ac6df78e641153df7c4cb42b981e762149ced605a49f8247ea50932",
+            "size": 766495
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-de/directions-and-transport.en.json",
+              "sha256": "7871bffff8ee62fedab02d840aa2bae828f704cef14f6c1316a46ec4c087f63b",
+              "size": 3541
+            },
+            "fr": {
+              "path": "courses/tourist-de/directions-and-transport.fr.json",
+              "sha256": "60b0852e7bed93374be45f3e788cba93ca4d2a95029980b5e1d33f77f1b4d962",
+              "size": 3624
+            },
+            "ja": {
+              "path": "courses/tourist-de/directions-and-transport.ja.json",
+              "sha256": "f7630476ffa030b3b502b9736bd1bef90b43885be36bc2eefca0afe6410e165e",
+              "size": 3666
+            },
+            "sr": {
+              "path": "courses/tourist-de/directions-and-transport.sr.json",
+              "sha256": "ed89d8698452ea9b1c27696ada00e197ba6d8dc96aa5823ac37a29b87137a910",
+              "size": 4152
+            },
+            "sv": {
+              "path": "courses/tourist-de/directions-and-transport.sv.json",
+              "sha256": "45ab252870213b1c4b41c0cd1928e3056c3d4a2bf1b204dc2537c7ad66ab2e35",
+              "size": 3526
+            },
+            "ur": {
+              "path": "courses/tourist-de/directions-and-transport.ur.json",
+              "sha256": "0cc859f6c05fc77700432be31dc00569fccc5fc143065d3c87bdfeab1fac79a7",
+              "size": 3761
+            }
+          }
+        },
+        {
+          "id": "food-and-drink",
+          "title": {
+            "en": "Food and drink",
+            "fr": "Manger et boire",
+            "sr": "Hrana i piće",
+            "de": "Essen und Trinken",
+            "sv": "Mat och dryck",
+            "ja": "食べ物と飲み物",
+            "ur": "کھانا پینا"
+          },
+          "concepts": 11,
+          "target": {
+            "path": "courses/tourist-de/food-and-drink.zip",
+            "sha256": "9058e48595e9ff56c29d2070c6702efea0bcaab280ae09951b6f1a4a91b4e273",
+            "size": 432495
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-de/food-and-drink.en.json",
+              "sha256": "fe6aa24bee0228711f3ec7d7921b03c1b368f536b4cbe6e4bd8dfbda5c80c944",
+              "size": 2396
+            },
+            "fr": {
+              "path": "courses/tourist-de/food-and-drink.fr.json",
+              "sha256": "8492fa78bf445a0f24be4aaf3d5ab3fb188f25085496227cd98c69765c97452e",
+              "size": 2549
+            },
+            "ja": {
+              "path": "courses/tourist-de/food-and-drink.ja.json",
+              "sha256": "4b44555a66358d138a650d8e2342a98a333c02de0b0b819141b56c09f70858f4",
+              "size": 2300
+            },
+            "sr": {
+              "path": "courses/tourist-de/food-and-drink.sr.json",
+              "sha256": "bb02c9b19a0540ec809ad889a4c44829500e7b70f8cdbd1080b8f321cf10ee45",
+              "size": 2792
+            },
+            "sv": {
+              "path": "courses/tourist-de/food-and-drink.sv.json",
+              "sha256": "d9bdc577de3aa3b743d8ff2e2a0fe5a7e52fc382e1e1aeae34470dbc3e90d9d8",
+              "size": 2386
+            },
+            "ur": {
+              "path": "courses/tourist-de/food-and-drink.ur.json",
+              "sha256": "b8fd3de070cac03b9758ad8d5f7ab30a8254101dadff6dd7457a49e8bf1748fa",
+              "size": 2466
+            }
+          }
+        },
+        {
+          "id": "accommodation-and-shopping",
+          "title": {
+            "en": "Accommodation and shopping",
+            "fr": "Hébergement et achats",
+            "sr": "Smeštaj i kupovina",
+            "de": "Unterkunft und Einkaufen",
+            "sv": "Boende och shopping",
+            "ja": "宿泊と買い物",
+            "ur": "قیام اور خریداری"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-de/accommodation-and-shopping.zip",
+            "sha256": "e74268a45f266999e0283558d064ab6b7dda29f8374d6768fb878328e2f3bd52",
+            "size": 522902
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-de/accommodation-and-shopping.en.json",
+              "sha256": "a9287dc98e26c6ffa251de380993e3abaf74d5b29ac3d812555e4bec1704b707",
+              "size": 2464
+            },
+            "fr": {
+              "path": "courses/tourist-de/accommodation-and-shopping.fr.json",
+              "sha256": "45234feb9def4d72974623de80a3cfebef4ab4f210fd29de3a87450ff53f8d69",
+              "size": 2533
+            },
+            "ja": {
+              "path": "courses/tourist-de/accommodation-and-shopping.ja.json",
+              "sha256": "cf2badc95f397f9109866aeb3e4da7f28ac942e290fffe4dcf8d69393631f05e",
+              "size": 2492
+            },
+            "sr": {
+              "path": "courses/tourist-de/accommodation-and-shopping.sr.json",
+              "sha256": "c084b97dde5df2c35e4289f65a477fc932e1a1ff4245dae5abb854853f56224d",
+              "size": 2811
+            },
+            "sv": {
+              "path": "courses/tourist-de/accommodation-and-shopping.sv.json",
+              "sha256": "1afa86130550285e96fa0d00be09ba2c96806a38fa59a97d6e018e65b72b6447",
+              "size": 2404
+            },
+            "ur": {
+              "path": "courses/tourist-de/accommodation-and-shopping.ur.json",
+              "sha256": "03dbffdca93672d1c51738903c659296959feccf404986a92ef13dd5fd7ff28f",
+              "size": 2541
+            }
+          }
+        },
+        {
+          "id": "emergencies-and-health",
+          "title": {
+            "en": "Emergencies and health",
+            "fr": "Urgences et santé",
+            "sr": "Hitni slučajevi i zdravlje",
+            "de": "Notfälle und Gesundheit",
+            "sv": "Nödsituationer och hälsa",
+            "ja": "緊急時と健康",
+            "ur": "ہنگامی حالات اور صحت"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-de/emergencies-and-health.zip",
+            "sha256": "bd1f4b3afd76d3fc93f1973e91e6d6e958e07053004bba838cdac173b2fd2c51",
+            "size": 477566
+          },
+          "text": {
+            "en": {
+              "path": "courses/tourist-de/emergencies-and-health.en.json",
+              "sha256": "63cb42c2b3d53ed23cf0137e8a1bb4927b7c0045c19baf7783cc3d0e3a53e700",
+              "size": 2349
+            },
+            "fr": {
+              "path": "courses/tourist-de/emergencies-and-health.fr.json",
+              "sha256": "1376c24dd6ff760761faed3e3dd2def497400b93e42b2ad603611d7d3be0e7d8",
+              "size": 2496
+            },
+            "ja": {
+              "path": "courses/tourist-de/emergencies-and-health.ja.json",
+              "sha256": "c00fd5cc8687267938c8af294c9617ebe3bfd5fbb9b0f945087dad5b4e6666c0",
+              "size": 2142
+            },
+            "sr": {
+              "path": "courses/tourist-de/emergencies-and-health.sr.json",
+              "sha256": "187d185d2623c2b024452971d9a958d7876e916f01833cce1f29f732aba86b4d",
+              "size": 2700
+            },
+            "sv": {
+              "path": "courses/tourist-de/emergencies-and-health.sv.json",
+              "sha256": "cdb770a48bbe02a158e6520664c94cc92a7225778a4994a924223b131096e6e1",
+              "size": 2403
+            },
+            "ur": {
+              "path": "courses/tourist-de/emergencies-and-health.ur.json",
+              "sha256": "ef3539e3d962a3f9775f9b96ede6c1c52724858b9393c633f5b1d65e74d2e38b",
+              "size": 2181
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tourist-en",
+      "version": "0.1.0",
+      "min_app_version": "1.0.0",
+      "kind": "tourist",
+      "target_language": "en",
+      "title": {
+        "en": "English for Tourists",
+        "fr": "L'anglais pour les touristes",
+        "sr": "Engleski za turiste",
+        "de": "Englisch für Touristen",
+        "sv": "Engelska för turister",
+        "ja": "旅行者のための英語",
+        "ur": "سیاحوں کے لیے انگریزی"
+      },
+      "sources": [
+        "de",
+        "fr",
+        "ja",
+        "sr",
+        "sv",
+        "ur"
+      ],
+      "units": [
+        {
+          "id": "greetings-and-basics",
+          "title": {
+            "en": "Greetings and basics",
+            "fr": "Salutations et bases",
+            "sr": "Pozdravi i osnove",
+            "de": "Grüße und Grundlagen",
+            "sv": "Hälsningar och grunder",
+            "ja": "あいさつと基本",
+            "ur": "سلام دعا اور بنیادی باتیں"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-en/greetings-and-basics.zip",
+            "sha256": "a28de2b57f23dd50168f3fbc8e9b4891e969f349c3714086543fdd84bd3dc008",
+            "size": 360941
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-en/greetings-and-basics.de.json",
+              "sha256": "d9c94c6565cbc19192e6df1060712352f3a7d53514a1549f9e2b8de56f22c3f5",
+              "size": 1902
+            },
+            "fr": {
+              "path": "courses/tourist-en/greetings-and-basics.fr.json",
+              "sha256": "7c40e73fe1de448f96fe0dc21c4b5fdc558278e0bff037d43bf7b6959bb61b5d",
+              "size": 2245
+            },
+            "ja": {
+              "path": "courses/tourist-en/greetings-and-basics.ja.json",
+              "sha256": "1623681560081c96e3d9a248d475c969809595ee6dde9ff16dfc9980bca720a4",
+              "size": 1950
+            },
+            "sr": {
+              "path": "courses/tourist-en/greetings-and-basics.sr.json",
+              "sha256": "08c4cee79571b8b17459d49ee9f2bd66a81e7443903baf7b3ae50d961bcbc72c",
+              "size": 2485
+            },
+            "sv": {
+              "path": "courses/tourist-en/greetings-and-basics.sv.json",
+              "sha256": "e2293aeab11266594e0f5cc0373bf19966a02a00cf1925f58fc9c9b97aa25df9",
+              "size": 2058
+            },
+            "ur": {
+              "path": "courses/tourist-en/greetings-and-basics.ur.json",
+              "sha256": "e6d3d3935a1964a431c95bb4ddfb4e78f084219a30bbee27702feb0323e28d92",
+              "size": 2175
+            }
+          }
+        },
+        {
+          "id": "essentials-and-politeness",
+          "title": {
+            "en": "Essentials and politeness",
+            "fr": "L'essentiel et la politesse",
+            "sr": "Osnovno i učtivost",
+            "de": "Das Wichtigste und Höflichkeit",
+            "sv": "Det viktigaste och artighet",
+            "ja": "必須表現と礼儀",
+            "ur": "ضروری الفاظ اور آداب"
+          },
+          "concepts": 16,
+          "target": {
+            "path": "courses/tourist-en/essentials-and-politeness.zip",
+            "sha256": "25319c6a9954bb89c138b93b2442909700830e996107e46b8a2d4d50bd190c0c",
+            "size": 526845
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-en/essentials-and-politeness.de.json",
+              "sha256": "d3cf66f3b960ef734a717ebf682336db4ddff66aeaffde751c56e4f738cdf35b",
+              "size": 2543
+            },
+            "fr": {
+              "path": "courses/tourist-en/essentials-and-politeness.fr.json",
+              "sha256": "1bb017ad82699965c6849f8c9102abaff313ac5e942716ef6b083a35249e94d0",
+              "size": 2899
+            },
+            "ja": {
+              "path": "courses/tourist-en/essentials-and-politeness.ja.json",
+              "sha256": "08ebc97a9c3bc72c65e51609f505191f12c24a6c7a142045af4e15defdf5a5dd",
+              "size": 2711
+            },
+            "sr": {
+              "path": "courses/tourist-en/essentials-and-politeness.sr.json",
+              "sha256": "f366a29ced47432c8103c2cf3b21b999860213b4546dbf84d716e1c07f4c243e",
+              "size": 3197
+            },
+            "sv": {
+              "path": "courses/tourist-en/essentials-and-politeness.sv.json",
+              "sha256": "e2c6e61d4323ad37caf712af210016da14df6417575db94171f550a3586d4a24",
+              "size": 2729
+            },
+            "ur": {
+              "path": "courses/tourist-en/essentials-and-politeness.ur.json",
+              "sha256": "a67b19599d7ca3202cb969a801fde7945030e4c4eab6f0c2fcec0f439314773b",
+              "size": 2828
+            }
+          }
+        },
+        {
+          "id": "directions-and-transport",
+          "title": {
+            "en": "Directions and transport",
+            "fr": "Directions et transports",
+            "sr": "Pravci i prevoz",
+            "de": "Wegbeschreibung und Verkehr",
+            "sv": "Vägbeskrivningar och transport",
+            "ja": "道案内と交通",
+            "ur": "راستے اور سفر"
+          },
+          "concepts": 17,
+          "target": {
+            "path": "courses/tourist-en/directions-and-transport.zip",
+            "sha256": "2a5b2582e814bb1939f5b123bd893fd8f0eb51d457a2c643f7458fe6db80b547",
+            "size": 679837
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-en/directions-and-transport.de.json",
+              "sha256": "06af0b1d8b34331bc84b88ce8f3da36eddff1e6ae3a68a98175a37e4137ca139",
+              "size": 3287
+            },
+            "fr": {
+              "path": "courses/tourist-en/directions-and-transport.fr.json",
+              "sha256": "ce21492e5a5d5fddf8b1a1f4113a12fcc594cb68381b17f9b6714396a2f71359",
+              "size": 3698
+            },
+            "ja": {
+              "path": "courses/tourist-en/directions-and-transport.ja.json",
+              "sha256": "b7403f792d22919412e71edeb96372d8cf4c0551aea600634cc8e077f7390831",
+              "size": 3647
+            },
+            "sr": {
+              "path": "courses/tourist-en/directions-and-transport.sr.json",
+              "sha256": "b5875e272e965e0b31b938dc2e54b7934c07629210d5eea1ed6e3739bd890861",
+              "size": 4191
+            },
+            "sv": {
+              "path": "courses/tourist-en/directions-and-transport.sv.json",
+              "sha256": "861e7f9673fc81069c345e8744a503b346c9e24d51c3b699d3cc3c0d68273f45",
+              "size": 3518
+            },
+            "ur": {
+              "path": "courses/tourist-en/directions-and-transport.ur.json",
+              "sha256": "f3d5fb0de19288b256a7737fc2fce3f139deaac201deaf50fddf51de4705e8ae",
+              "size": 3806
+            }
+          }
+        },
+        {
+          "id": "food-and-drink",
+          "title": {
+            "en": "Food and drink",
+            "fr": "Manger et boire",
+            "sr": "Hrana i piće",
+            "de": "Essen und Trinken",
+            "sv": "Mat och dryck",
+            "ja": "食べ物と飲み物",
+            "ur": "کھانا پینا"
+          },
+          "concepts": 11,
+          "target": {
+            "path": "courses/tourist-en/food-and-drink.zip",
+            "sha256": "f8e74b346b1552f7ddc68fa44faa41dc6b093afd185386819cb86cf42b92bd25",
+            "size": 441639
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-en/food-and-drink.de.json",
+              "sha256": "7baa4b6172dc54f21690dfb6d62ce7b42a934b73734838c3f5b37db5f2d20360",
+              "size": 2315
+            },
+            "fr": {
+              "path": "courses/tourist-en/food-and-drink.fr.json",
+              "sha256": "c048a70ba3300a3482854f4f69e8ff283ea98319254a372066e0a7fc9fdc8447",
+              "size": 2671
+            },
+            "ja": {
+              "path": "courses/tourist-en/food-and-drink.ja.json",
+              "sha256": "df0ec9f47525a1619bb4fd96414021b49a383d71fd31b696ad5b6eccd8072058",
+              "size": 2308
+            },
+            "sr": {
+              "path": "courses/tourist-en/food-and-drink.sr.json",
+              "sha256": "d5722916b842f6ecc812ee8a182fcdffe462ea2f98c9da9169e7d71d30e75c06",
+              "size": 2905
+            },
+            "sv": {
+              "path": "courses/tourist-en/food-and-drink.sv.json",
+              "sha256": "1941eb7e3f267ac2e9296a607c652982075a8d963f98c9dc903a990ef90e29bb",
+              "size": 2449
+            },
+            "ur": {
+              "path": "courses/tourist-en/food-and-drink.ur.json",
+              "sha256": "8ac01359748f3e3093d6f330b390f1c95ff0560b39c79bb43003832ee14dd007",
+              "size": 2560
+            }
+          }
+        },
+        {
+          "id": "accommodation-and-shopping",
+          "title": {
+            "en": "Accommodation and shopping",
+            "fr": "Hébergement et achats",
+            "sr": "Smeštaj i kupovina",
+            "de": "Unterkunft und Einkaufen",
+            "sv": "Boende och shopping",
+            "ja": "宿泊と買い物",
+            "ur": "قیام اور خریداری"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-en/accommodation-and-shopping.zip",
+            "sha256": "04ac84e3428c9d5ae0758b5bc79d2f742cd99dad0dbe3ece6be29babefa9af89",
+            "size": 493828
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-en/accommodation-and-shopping.de.json",
+              "sha256": "b043e82a935532ee39a255880e8aa2049140ae2344ef149ad62320f4dd64c897",
+              "size": 2636
+            },
+            "fr": {
+              "path": "courses/tourist-en/accommodation-and-shopping.fr.json",
+              "sha256": "9dab0c1225fed201efa02e7d77a2b76111801e3936e6cd34015b530f959043ae",
+              "size": 3016
+            },
+            "ja": {
+              "path": "courses/tourist-en/accommodation-and-shopping.ja.json",
+              "sha256": "a95a01a3933ccfc014fd8614c5c77817560ddf9a41cf800de28cee1478270b2d",
+              "size": 2578
+            },
+            "sr": {
+              "path": "courses/tourist-en/accommodation-and-shopping.sr.json",
+              "sha256": "752e83768a958002962b3798aa8a4d0c8c31c9d295c2609df86c5497eae67aea",
+              "size": 3229
+            },
+            "sv": {
+              "path": "courses/tourist-en/accommodation-and-shopping.sv.json",
+              "sha256": "0b0d8e42c62fdaf40ffbd0b95521d55d10f38807e603e4526101e7931aa73a27",
+              "size": 2814
+            },
+            "ur": {
+              "path": "courses/tourist-en/accommodation-and-shopping.ur.json",
+              "sha256": "5c6eef062e9b679bd9c7b25a40187929ea3346a1950ef1937608f5cd32d7ac57",
+              "size": 2676
+            }
+          }
+        },
+        {
+          "id": "emergencies-and-health",
+          "title": {
+            "en": "Emergencies and health",
+            "fr": "Urgences et santé",
+            "sr": "Hitni slučajevi i zdravlje",
+            "de": "Notfälle und Gesundheit",
+            "sv": "Nödsituationer och hälsa",
+            "ja": "緊急時と健康",
+            "ur": "ہنگامی حالات اور صحت"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-en/emergencies-and-health.zip",
+            "sha256": "7bd20dc16eb230781dd544a9f80a2c6ee32332026b58e87d380785377a693cb9",
+            "size": 408426
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-en/emergencies-and-health.de.json",
+              "sha256": "9b1f1eb554cc271726071359d10f7350715d3f95ecd413861bf2c23563e4fe07",
+              "size": 1886
+            },
+            "fr": {
+              "path": "courses/tourist-en/emergencies-and-health.fr.json",
+              "sha256": "70e110cede83eb393b73dbfe963c62e51b7396e470ed2dafab24bcd8cb77b70b",
+              "size": 2286
+            },
+            "ja": {
+              "path": "courses/tourist-en/emergencies-and-health.ja.json",
+              "sha256": "2e5fa802b925509446e3f92e9bf4d17278dbc9df4c67ca97854c7e53769fea45",
+              "size": 2056
+            },
+            "sr": {
+              "path": "courses/tourist-en/emergencies-and-health.sr.json",
+              "sha256": "449f72d5a49e8379baab8457b48945836be3784f678a7d09fda0fddd75ff29b7",
+              "size": 2539
+            },
+            "sv": {
+              "path": "courses/tourist-en/emergencies-and-health.sv.json",
+              "sha256": "ec39e33ca35bd72a2c4345cb762661dbb6614a03e66376671ba591af04494714",
+              "size": 2181
+            },
+            "ur": {
+              "path": "courses/tourist-en/emergencies-and-health.ur.json",
+              "sha256": "3378e772ad3b72a9f74d805cc8f23bc87a815c86c6771ee5918210ca93ea4e95",
+              "size": 2158
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "tourist-fr",
       "version": "0.1.0",
       "min_app_version": "1.0.0",
@@ -13,11 +665,19 @@
       "title": {
         "en": "French for Tourists",
         "fr": "Le français pour les touristes",
-        "sr": "Francuski za turiste"
+        "sr": "Francuski za turiste",
+        "de": "Französisch für Touristen",
+        "sv": "Franska för turister",
+        "ja": "旅行者のためのフランス語",
+        "ur": "سیاحوں کے لیے فرانسیسی"
       },
       "sources": [
+        "de",
         "en",
-        "sr"
+        "ja",
+        "sr",
+        "sv",
+        "ur"
       ],
       "units": [
         {
@@ -25,50 +685,624 @@
           "title": {
             "en": "Greetings and basics",
             "fr": "Salutations et bases",
-            "sr": "Pozdravi i osnove"
+            "sr": "Pozdravi i osnove",
+            "de": "Grüße und Grundlagen",
+            "sv": "Hälsningar och grunder",
+            "ja": "あいさつと基本",
+            "ur": "سلام دعا اور بنیادی باتیں"
           },
-          "concepts": 4,
+          "concepts": 10,
           "target": {
             "path": "courses/tourist-fr/greetings-and-basics.zip",
-            "sha256": "4ef6a8fd4a0173e068f57a76ba712d5d167208e71f1838ddd2f7fccb3d77f249",
-            "size": 165322
+            "sha256": "d03428ae3a363e993a7a3767fd2dccdee7b4d2ebc0bb043df1cbda1d6a91dbec",
+            "size": 359246
           },
           "text": {
+            "de": {
+              "path": "courses/tourist-fr/greetings-and-basics.de.json",
+              "sha256": "08e86dc93cf9d5ce815310e0f34200fcfc3c5320681e42b1d1ae1061e168b2c3",
+              "size": 1791
+            },
             "en": {
               "path": "courses/tourist-fr/greetings-and-basics.en.json",
-              "sha256": "999ed58d689c2485f8a0fc1c5c0ca91672095c7cd929d7e287b294c0d7f67965",
-              "size": 1071
+              "sha256": "53d7dc7807d17fbb08b782b44b2bad88f0db3f1549050159556ef28eb3415499",
+              "size": 1803
+            },
+            "ja": {
+              "path": "courses/tourist-fr/greetings-and-basics.ja.json",
+              "sha256": "108a9d09e906484eafec213228c814dbfb307f97be91365db9d7cdf31a0dfdff",
+              "size": 1831
             },
             "sr": {
               "path": "courses/tourist-fr/greetings-and-basics.sr.json",
-              "sha256": "88447bea0c6a8d9815d38f249b5b5fb6fcbf08578ac3be06fb0230d9e084666f",
-              "size": 1337
+              "sha256": "b17c50462b8c1308453219777ae0505ad1f2a86926bf5fecb4cab0ab92da9f7b",
+              "size": 2227
+            },
+            "sv": {
+              "path": "courses/tourist-fr/greetings-and-basics.sv.json",
+              "sha256": "d54d4bb7f953a184ee2a50f0af824761dd9d473d5b51ba982e3ca14c3f4ce52d",
+              "size": 1800
+            },
+            "ur": {
+              "path": "courses/tourist-fr/greetings-and-basics.ur.json",
+              "sha256": "f3dc8dad1c0829c72b21051a8f35e4b6da024bc3ad348809a22fb6e3c9902523",
+              "size": 2023
             }
           }
         },
         {
-          "id": "food-and-getting-around",
+          "id": "essentials-and-politeness",
           "title": {
-            "en": "Food and getting around",
-            "fr": "Se restaurer et se déplacer",
-            "sr": "Hrana i snalaženje"
+            "en": "Essentials and politeness",
+            "fr": "L'essentiel et la politesse",
+            "sr": "Osnovno i učtivost",
+            "de": "Das Wichtigste und Höflichkeit",
+            "sv": "Det viktigaste och artighet",
+            "ja": "必須表現と礼儀",
+            "ur": "ضروری الفاظ اور آداب"
           },
-          "concepts": 2,
+          "concepts": 16,
           "target": {
-            "path": "courses/tourist-fr/food-and-getting-around.zip",
-            "sha256": "f09003258ef400c747c3509dc1203113b92411307d5ba33f3b4af468169b080f",
-            "size": 153646
+            "path": "courses/tourist-fr/essentials-and-politeness.zip",
+            "sha256": "1ef8f6351905d603e0c9114d29981c65bca7e67ad1a902116d7e21bc70c92669",
+            "size": 531141
           },
           "text": {
+            "de": {
+              "path": "courses/tourist-fr/essentials-and-politeness.de.json",
+              "sha256": "02d7ce496e17917e3a44b1a21a5c955bf7f328b3dc454c7f5506f017e2a71f60",
+              "size": 2450
+            },
             "en": {
-              "path": "courses/tourist-fr/food-and-getting-around.en.json",
-              "sha256": "8a00458cc115052755b33bcb02f33fec9c0d1e6d5843ed2a31ad8a488d97593b",
-              "size": 1117
+              "path": "courses/tourist-fr/essentials-and-politeness.en.json",
+              "sha256": "c1cb5e36b8f0608378f64979617e2caf4ed1e2d54d27ae071c6e01bbd6a4f992",
+              "size": 2507
+            },
+            "ja": {
+              "path": "courses/tourist-fr/essentials-and-politeness.ja.json",
+              "sha256": "b4f887e16f779e7cf9ce8677c3eeb8d7818fc6ea31a073ff927e42fc80959f0e",
+              "size": 2955
             },
             "sr": {
-              "path": "courses/tourist-fr/food-and-getting-around.sr.json",
-              "sha256": "5c67917668f60d9f7a105849f0c05c7edb427c21b83d704b675dd8df12dc478d",
-              "size": 1247
+              "path": "courses/tourist-fr/essentials-and-politeness.sr.json",
+              "sha256": "81d91edfb87a7e7bd6650e66a3c198627aacdb3bd15248e8c112f0415975e9c7",
+              "size": 2900
+            },
+            "sv": {
+              "path": "courses/tourist-fr/essentials-and-politeness.sv.json",
+              "sha256": "26f0945b4210516a2c7692cc4648751d344a6bfea595783ad5b34249e255c98a",
+              "size": 2477
+            },
+            "ur": {
+              "path": "courses/tourist-fr/essentials-and-politeness.ur.json",
+              "sha256": "ae8259618699d6baab15b2987b73f2b22ddbe00a10992b83b1e87ce8192bea48",
+              "size": 2919
+            }
+          }
+        },
+        {
+          "id": "directions-and-transport",
+          "title": {
+            "en": "Directions and transport",
+            "fr": "Directions et transports",
+            "sr": "Pravci i prevoz",
+            "de": "Wegbeschreibung und Verkehr",
+            "sv": "Vägbeskrivningar och transport",
+            "ja": "道案内と交通",
+            "ur": "راستے اور سفر"
+          },
+          "concepts": 17,
+          "target": {
+            "path": "courses/tourist-fr/directions-and-transport.zip",
+            "sha256": "192a846710db7544ad1a253c3f99116f6aa8b94c7982d4b91950ce918526228f",
+            "size": 783648
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-fr/directions-and-transport.de.json",
+              "sha256": "2dbf80ddc86908c56166411a79dcdfcda0c9d4119195e152c2989a6384128d13",
+              "size": 3585
+            },
+            "en": {
+              "path": "courses/tourist-fr/directions-and-transport.en.json",
+              "sha256": "e41751475e1f3cf0d6c917ef8fb88c34c2809da00c8a23a9ebf4ef8667105bbc",
+              "size": 3481
+            },
+            "ja": {
+              "path": "courses/tourist-fr/directions-and-transport.ja.json",
+              "sha256": "2e6f393fdbfafab8c7bc7d316e2ae7ced51b9916459dffcc430a91d06830eeba",
+              "size": 4038
+            },
+            "sr": {
+              "path": "courses/tourist-fr/directions-and-transport.sr.json",
+              "sha256": "fd1c6029c5a1325e1eec25d334fd3ae8b6f6e525963dba14f2a3849592086b65",
+              "size": 4215
+            },
+            "sv": {
+              "path": "courses/tourist-fr/directions-and-transport.sv.json",
+              "sha256": "f14f00f73a6a9db4aeeaa53ec5bfdafa0309b0efb36d2dbd2672b41ae06001d8",
+              "size": 3577
+            },
+            "ur": {
+              "path": "courses/tourist-fr/directions-and-transport.ur.json",
+              "sha256": "974f1ceb3e2d3db59fb0512a9f0fae40d27dd57f1dd7cc1ed921ec24a6736121",
+              "size": 4016
+            }
+          }
+        },
+        {
+          "id": "food-and-drink",
+          "title": {
+            "en": "Food and drink",
+            "fr": "Manger et boire",
+            "sr": "Hrana i piće",
+            "de": "Essen und Trinken",
+            "sv": "Mat och dryck",
+            "ja": "食べ物と飲み物",
+            "ur": "کھانا پینا"
+          },
+          "concepts": 11,
+          "target": {
+            "path": "courses/tourist-fr/food-and-drink.zip",
+            "sha256": "3324f13ce02d261fbd55bfdb33d203f0fa9e1792dc0dca4eebdb1230f55f25be",
+            "size": 482398
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-fr/food-and-drink.de.json",
+              "sha256": "e2b21f6d491d5b2d78a870dabbb28dcd673a2da4bd0b62f97eac3eda1659420f",
+              "size": 2181
+            },
+            "en": {
+              "path": "courses/tourist-fr/food-and-drink.en.json",
+              "sha256": "0703c6ddc349b577ad6da92d01d210a3b84d24fdc7356df1b47dc13ec80a29a5",
+              "size": 2493
+            },
+            "ja": {
+              "path": "courses/tourist-fr/food-and-drink.ja.json",
+              "sha256": "36399139e69e301edccf8661818f27bedf3912514abd0891d9777ec2837480a3",
+              "size": 2572
+            },
+            "sr": {
+              "path": "courses/tourist-fr/food-and-drink.sr.json",
+              "sha256": "7aa4a49f42814802f9c8a50cd15f7da6d3294d3c0e1ac4ee424f6556e0a5e5b2",
+              "size": 2873
+            },
+            "sv": {
+              "path": "courses/tourist-fr/food-and-drink.sv.json",
+              "sha256": "d4815b52601caa682285d3073c720934f1022f5603e088824cd1b3bee969c354",
+              "size": 2537
+            },
+            "ur": {
+              "path": "courses/tourist-fr/food-and-drink.ur.json",
+              "sha256": "75337b3b5fafb8fea018bd8c6315eefda729c42767392eb98a5b703b17760612",
+              "size": 2644
+            }
+          }
+        },
+        {
+          "id": "accommodation-and-shopping",
+          "title": {
+            "en": "Accommodation and shopping",
+            "fr": "Hébergement et achats",
+            "sr": "Smeštaj i kupovina",
+            "de": "Unterkunft und Einkaufen",
+            "sv": "Boende och shopping",
+            "ja": "宿泊と買い物",
+            "ur": "قیام اور خریداری"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-fr/accommodation-and-shopping.zip",
+            "sha256": "faff7481c340b30ba42ca377d9556effddcf10199ede80417d404e95d4001f49",
+            "size": 544042
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-fr/accommodation-and-shopping.de.json",
+              "sha256": "7c789ab99694f5fa16cccc4df899dd6aa20da81bc45b43a94352b43e8c78eccd",
+              "size": 2494
+            },
+            "en": {
+              "path": "courses/tourist-fr/accommodation-and-shopping.en.json",
+              "sha256": "66aacb0f25f1d3ea8444a782ddca4b63e51fd3dd1d386618f0dce1f55a91c370",
+              "size": 2393
+            },
+            "ja": {
+              "path": "courses/tourist-fr/accommodation-and-shopping.ja.json",
+              "sha256": "5e10b183b7b17f70b3eab07499675733b259cb2bec35eddb7d7b02e5f19ee6d5",
+              "size": 2629
+            },
+            "sr": {
+              "path": "courses/tourist-fr/accommodation-and-shopping.sr.json",
+              "sha256": "450498f15e8a3962c96eaa33e3173d570cb722859ce17f4931cb3857f28558c8",
+              "size": 2785
+            },
+            "sv": {
+              "path": "courses/tourist-fr/accommodation-and-shopping.sv.json",
+              "sha256": "4b3591356cf53434e125d4c7c087bd147119d082d12e2211d505a8d6c599dd4f",
+              "size": 2421
+            },
+            "ur": {
+              "path": "courses/tourist-fr/accommodation-and-shopping.ur.json",
+              "sha256": "2ed7fc3f02970af571eb08ef9030826c6eecd3ead56e62d0c7a02b98da87b6c0",
+              "size": 2576
+            }
+          }
+        },
+        {
+          "id": "emergencies-and-health",
+          "title": {
+            "en": "Emergencies and health",
+            "fr": "Urgences et santé",
+            "sr": "Hitni slučajevi i zdravlje",
+            "de": "Notfälle und Gesundheit",
+            "sv": "Nödsituationer och hälsa",
+            "ja": "緊急時と健康",
+            "ur": "ہنگامی حالات اور صحت"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-fr/emergencies-and-health.zip",
+            "sha256": "931f254a44cd8d2e21d5ff0d161e02c531dfbce5eca2da357086da89acd4a086",
+            "size": 491917
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-fr/emergencies-and-health.de.json",
+              "sha256": "036a2488487327365b5b51e1b8eaf318579bc46760384ece98adfa7a2d3fba6f",
+              "size": 2296
+            },
+            "en": {
+              "path": "courses/tourist-fr/emergencies-and-health.en.json",
+              "sha256": "78774ca79784c97da307dfcd01561372988cd35157001f4b34fece14537fa6d5",
+              "size": 2264
+            },
+            "ja": {
+              "path": "courses/tourist-fr/emergencies-and-health.ja.json",
+              "sha256": "1b2b96ca38bbc55b68b38b5f0e96de871607734f9e50f22eda9f79b6d30bcf31",
+              "size": 2415
+            },
+            "sr": {
+              "path": "courses/tourist-fr/emergencies-and-health.sr.json",
+              "sha256": "03e745ea206c71e360500943d59d4880ce7ec0c037ce0e77c759d8435a5dca46",
+              "size": 2672
+            },
+            "sv": {
+              "path": "courses/tourist-fr/emergencies-and-health.sv.json",
+              "sha256": "31d17eec8860c430c9aa1165b7f99ae18eb218482dc3da76011f04e17c3fda99",
+              "size": 2373
+            },
+            "ur": {
+              "path": "courses/tourist-fr/emergencies-and-health.ur.json",
+              "sha256": "78ac6a92e81c4a9ba274fbf475289432c22b9cc222d93825da067624fe1014bf",
+              "size": 2387
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tourist-ja",
+      "version": "0.1.0",
+      "min_app_version": "1.0.0",
+      "kind": "tourist",
+      "target_language": "ja",
+      "title": {
+        "en": "Japanese for Tourists",
+        "fr": "Le japonais pour les touristes",
+        "sr": "Japanski za turiste",
+        "de": "Japanisch für Touristen",
+        "sv": "Japanska för turister",
+        "ja": "旅行者のための日本語",
+        "ur": "سیاحوں کے لیے جاپانی"
+      },
+      "sources": [
+        "de",
+        "en",
+        "fr",
+        "sr",
+        "sv",
+        "ur"
+      ],
+      "units": [
+        {
+          "id": "greetings-and-basics",
+          "title": {
+            "en": "Greetings and basics",
+            "fr": "Salutations et bases",
+            "sr": "Pozdravi i osnove",
+            "de": "Grüße und Grundlagen",
+            "sv": "Hälsningar och grunder",
+            "ja": "あいさつと基本",
+            "ur": "سلام دعا اور بنیادی باتیں"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-ja/greetings-and-basics.zip",
+            "sha256": "7d31138d13f0d5572e953748e050f955d3e967374a0db4a37d5791b49a55307c",
+            "size": 409624
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ja/greetings-and-basics.de.json",
+              "sha256": "acea5122faee9807854699f9180c58f67060d437ea44cf293190ef9b47f8b277",
+              "size": 1585
+            },
+            "en": {
+              "path": "courses/tourist-ja/greetings-and-basics.en.json",
+              "sha256": "3410cf6b6565222e05d5cd3586778966f7f70805b6fab31784d0d430d0ac113a",
+              "size": 1591
+            },
+            "fr": {
+              "path": "courses/tourist-ja/greetings-and-basics.fr.json",
+              "sha256": "5d51ad03da3e63e373b1e5758a79fe497233aab26e01112124e0fe2496e4f2df",
+              "size": 1696
+            },
+            "sr": {
+              "path": "courses/tourist-ja/greetings-and-basics.sr.json",
+              "sha256": "1472483ebf5ab1d8279197a458db0a9d25db3f145831a2f65413e440e584cd4b",
+              "size": 1965
+            },
+            "sv": {
+              "path": "courses/tourist-ja/greetings-and-basics.sv.json",
+              "sha256": "a0fa5982da33e0940c54911195d2d24a224364ae48df1ba7d1419f562e95b89d",
+              "size": 1532
+            },
+            "ur": {
+              "path": "courses/tourist-ja/greetings-and-basics.ur.json",
+              "sha256": "36ac87dae2f5e89b139d2abaef1c89243fb45b444ae6f5e3844b8f19126cc3fd",
+              "size": 2229
+            }
+          }
+        },
+        {
+          "id": "essentials-and-politeness",
+          "title": {
+            "en": "Essentials and politeness",
+            "fr": "L'essentiel et la politesse",
+            "sr": "Osnovno i učtivost",
+            "de": "Das Wichtigste und Höflichkeit",
+            "sv": "Det viktigaste och artighet",
+            "ja": "必須表現と礼儀",
+            "ur": "ضروری الفاظ اور آداب"
+          },
+          "concepts": 16,
+          "target": {
+            "path": "courses/tourist-ja/essentials-and-politeness.zip",
+            "sha256": "c83dd8d1009bf7278fc8db974f3cb8c7cf8fb0052280a3eb83e43a03466363b4",
+            "size": 563845
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ja/essentials-and-politeness.de.json",
+              "sha256": "b217ec6b58e59a51008de6656881866bec537d11866e2cfc1bb99febaea55fc7",
+              "size": 2292
+            },
+            "en": {
+              "path": "courses/tourist-ja/essentials-and-politeness.en.json",
+              "sha256": "5a00dfbdcf16b9754c68f47a1a3fc3622643ee34c35d60429f20c7a089ea258c",
+              "size": 2273
+            },
+            "fr": {
+              "path": "courses/tourist-ja/essentials-and-politeness.fr.json",
+              "sha256": "b4516580d532402e8772c921f673d7fd6f978e382e0fabdc71cd5923be7a2235",
+              "size": 2288
+            },
+            "sr": {
+              "path": "courses/tourist-ja/essentials-and-politeness.sr.json",
+              "sha256": "62d873ee267401c8aa462f0ac3ee5949d4adb8b7ddbf497f4b462685a133f69f",
+              "size": 2683
+            },
+            "sv": {
+              "path": "courses/tourist-ja/essentials-and-politeness.sv.json",
+              "sha256": "8c28ebfebe0bfba17bef4cbe2f32f809048c5872a1fb9906e26a86cdc8482227",
+              "size": 2224
+            },
+            "ur": {
+              "path": "courses/tourist-ja/essentials-and-politeness.ur.json",
+              "sha256": "36b503d4c3f4ac49443229de73322fbd2ae738a809feb1120dc79d83c80f9ef0",
+              "size": 3084
+            }
+          }
+        },
+        {
+          "id": "directions-and-transport",
+          "title": {
+            "en": "Directions and transport",
+            "fr": "Directions et transports",
+            "sr": "Pravci i prevoz",
+            "de": "Wegbeschreibung und Verkehr",
+            "sv": "Vägbeskrivningar och transport",
+            "ja": "道案内と交通",
+            "ur": "راستے اور سفر"
+          },
+          "concepts": 17,
+          "target": {
+            "path": "courses/tourist-ja/directions-and-transport.zip",
+            "sha256": "2e5db4e6bda3af9d483689de243e2596f59a161323f08f802ce1b21c273b4512",
+            "size": 716980
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ja/directions-and-transport.de.json",
+              "sha256": "39af8370eab27c3ad1b18622bea6ac9aef0610fb8ab84a111f9ec0e16091b86b",
+              "size": 2840
+            },
+            "en": {
+              "path": "courses/tourist-ja/directions-and-transport.en.json",
+              "sha256": "61154d0c669fde21bb58a18b00d30802516a8667a4ab4ead56cd0fcf73a4556b",
+              "size": 2824
+            },
+            "fr": {
+              "path": "courses/tourist-ja/directions-and-transport.fr.json",
+              "sha256": "7823f1d5e4eb5923654aaa4ae731957cfb859ca9ee3aea263e6fb0ff0539963c",
+              "size": 2891
+            },
+            "sr": {
+              "path": "courses/tourist-ja/directions-and-transport.sr.json",
+              "sha256": "f0ce9ddcd7452fe26029f7f2f98417a971663c290be662bda9df133859acbf88",
+              "size": 3489
+            },
+            "sv": {
+              "path": "courses/tourist-ja/directions-and-transport.sv.json",
+              "sha256": "32b76612714bab664283175c4ca1baa4582a8162992878f9851e19314b582c5d",
+              "size": 2819
+            },
+            "ur": {
+              "path": "courses/tourist-ja/directions-and-transport.ur.json",
+              "sha256": "bce6b78260bc43d5439c858a8cb5c69c33ce3a6eac28fd1b00de47ede53c8fbd",
+              "size": 3829
+            }
+          }
+        },
+        {
+          "id": "food-and-drink",
+          "title": {
+            "en": "Food and drink",
+            "fr": "Manger et boire",
+            "sr": "Hrana i piće",
+            "de": "Essen und Trinken",
+            "sv": "Mat och dryck",
+            "ja": "食べ物と飲み物",
+            "ur": "کھانا پینا"
+          },
+          "concepts": 11,
+          "target": {
+            "path": "courses/tourist-ja/food-and-drink.zip",
+            "sha256": "259f0b2f92e34538f54ec737bacde26dffa30f4ab2d97c72cf0359bd4d369282",
+            "size": 414531
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ja/food-and-drink.de.json",
+              "sha256": "0f182f06b19d8621f99af8519d5529b70e782245d59b7304d500597f37c36da5",
+              "size": 1817
+            },
+            "en": {
+              "path": "courses/tourist-ja/food-and-drink.en.json",
+              "sha256": "b9deb6a5221ffc12db79e867e1bc21e41805bd305108cfa66c2f9eec70c19bc7",
+              "size": 1779
+            },
+            "fr": {
+              "path": "courses/tourist-ja/food-and-drink.fr.json",
+              "sha256": "2a43c04c1f6c731ca9187a95eed192f609e96807a3d61b404f5bfd09083f4434",
+              "size": 1912
+            },
+            "sr": {
+              "path": "courses/tourist-ja/food-and-drink.sr.json",
+              "sha256": "64ee0a3f203014f8c7c3cc04994655a11bc7071355458f0dbbdbc0958b2b6459",
+              "size": 2176
+            },
+            "sv": {
+              "path": "courses/tourist-ja/food-and-drink.sv.json",
+              "sha256": "7d97cbbfd82029cf5862e41cbebb296d41f78dc98cb3fb812d343c65e21be753",
+              "size": 1774
+            },
+            "ur": {
+              "path": "courses/tourist-ja/food-and-drink.ur.json",
+              "sha256": "37d82d87ae55a84cdf968b03aae41dbea3f7e79566fc1657bb61ceb88fb724aa",
+              "size": 2503
+            }
+          }
+        },
+        {
+          "id": "accommodation-and-shopping",
+          "title": {
+            "en": "Accommodation and shopping",
+            "fr": "Hébergement et achats",
+            "sr": "Smeštaj i kupovina",
+            "de": "Unterkunft und Einkaufen",
+            "sv": "Boende och shopping",
+            "ja": "宿泊と買い物",
+            "ur": "قیام اور خریداری"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-ja/accommodation-and-shopping.zip",
+            "sha256": "e94241998e293e75419bb74a761667fc4a48078c68c2184555578fc912e2291b",
+            "size": 481944
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ja/accommodation-and-shopping.de.json",
+              "sha256": "01ec88e2dfc3c0c33cd17cccd63ec5b3d5194327ed2418b0f75a78b291e8b4df",
+              "size": 1985
+            },
+            "en": {
+              "path": "courses/tourist-ja/accommodation-and-shopping.en.json",
+              "sha256": "0dde851dcd7be3156d61e018633986b15809104d67fd0b2b68940b6af0bff008",
+              "size": 1928
+            },
+            "fr": {
+              "path": "courses/tourist-ja/accommodation-and-shopping.fr.json",
+              "sha256": "c91a2e8614cf8c9ea97f2b45c08721ee10fd361d35c3be14ec94cad625d2ac4f",
+              "size": 1981
+            },
+            "sr": {
+              "path": "courses/tourist-ja/accommodation-and-shopping.sr.json",
+              "sha256": "fea1a732e9bf9f50a3bde0bcb5a08125e5153984e6dda02ccfb553385e625339",
+              "size": 2290
+            },
+            "sv": {
+              "path": "courses/tourist-ja/accommodation-and-shopping.sv.json",
+              "sha256": "1261b091c15967e691d931ca41838bcebb0e0a929069e9d3582efcca617a2bd3",
+              "size": 1893
+            },
+            "ur": {
+              "path": "courses/tourist-ja/accommodation-and-shopping.ur.json",
+              "sha256": "b846a256903289da2c40de1ee6a8c377adb5a110c87a1d21c5c2a4f3a6d2ef5a",
+              "size": 2576
+            }
+          }
+        },
+        {
+          "id": "emergencies-and-health",
+          "title": {
+            "en": "Emergencies and health",
+            "fr": "Urgences et santé",
+            "sr": "Hitni slučajevi i zdravlje",
+            "de": "Notfälle und Gesundheit",
+            "sv": "Nödsituationer och hälsa",
+            "ja": "緊急時と健康",
+            "ur": "ہنگامی حالات اور صحت"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-ja/emergencies-and-health.zip",
+            "sha256": "280bcdca45bd12af15f6dc58a5cebaaccb27a5ac1673605b72bd59acfb21b192",
+            "size": 400037
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ja/emergencies-and-health.de.json",
+              "sha256": "4ffc53519cb577dc9d590cf4290ce3fe1402360a4c37feafe21aa0b978baf6a1",
+              "size": 1702
+            },
+            "en": {
+              "path": "courses/tourist-ja/emergencies-and-health.en.json",
+              "sha256": "41e922d5f410547d234f6c3d699a025b54077952a2114f6f744b18cdbe2ac364",
+              "size": 1671
+            },
+            "fr": {
+              "path": "courses/tourist-ja/emergencies-and-health.fr.json",
+              "sha256": "b347e121809d61f9f94b8bf41576534debdb9a293fb3e33d386d0b3b545a19d5",
+              "size": 1728
+            },
+            "sr": {
+              "path": "courses/tourist-ja/emergencies-and-health.sr.json",
+              "sha256": "6b4fa42b308b1d614ff7f6c61fd7cfab981cd1e0ee02ab6353d1d9e9ac1237e1",
+              "size": 2013
+            },
+            "sv": {
+              "path": "courses/tourist-ja/emergencies-and-health.sv.json",
+              "sha256": "bea5e2a02f05a309db5ba6f176146098b446476752e8d0cca1cdb2a56fe29901",
+              "size": 1694
+            },
+            "ur": {
+              "path": "courses/tourist-ja/emergencies-and-health.ur.json",
+              "sha256": "00e3f034f45a5589bb04e387b7fbadc84f5db96a4ae607ba593ec5cfa2b7078f",
+              "size": 2186
             }
           }
         }
@@ -83,11 +1317,19 @@
       "title": {
         "en": "Serbian for Tourists",
         "fr": "Le serbe pour les touristes",
-        "sr": "Srpski za turiste"
+        "sr": "Srpski za turiste",
+        "de": "Serbisch für Touristen",
+        "sv": "Serbiska för turister",
+        "ja": "旅行者のためのセルビア語",
+        "ur": "سیاحوں کے لیے سربی"
       },
       "sources": [
+        "de",
         "en",
-        "fr"
+        "fr",
+        "ja",
+        "sv",
+        "ur"
       ],
       "units": [
         {
@@ -95,50 +1337,950 @@
           "title": {
             "en": "Greetings and basics",
             "fr": "Salutations et bases",
-            "sr": "Pozdravi i osnove"
+            "sr": "Pozdravi i osnove",
+            "de": "Grüße und Grundlagen",
+            "sv": "Hälsningar och grunder",
+            "ja": "あいさつと基本",
+            "ur": "سلام دعا اور بنیادی باتیں"
           },
-          "concepts": 4,
+          "concepts": 10,
           "target": {
             "path": "courses/tourist-sr/greetings-and-basics.zip",
-            "sha256": "1c57985fdf7cbd30516240c0c6baa56879048de2e4a3f4f0abcfdc60719d3b77",
-            "size": 242154
+            "sha256": "fe8a14aac9766f463b788aa29a67ceea9754d4b196fa37155d997b88bb433db3",
+            "size": 509346
           },
           "text": {
+            "de": {
+              "path": "courses/tourist-sr/greetings-and-basics.de.json",
+              "sha256": "7aa06afc3f4e43b24f8861a69908b99cf72c72dd628a1e365b091c6019145fe2",
+              "size": 1544
+            },
             "en": {
               "path": "courses/tourist-sr/greetings-and-basics.en.json",
-              "sha256": "dc90df0ad45ec2a487ac59f6e3b36d7aeb0032993299951d0e2dbf36b385e159",
-              "size": 867
+              "sha256": "c096957860746dc97420e11390dd1ef3c2ad6ccbae5b731e6f152a7e1495e86d",
+              "size": 1530
             },
             "fr": {
               "path": "courses/tourist-sr/greetings-and-basics.fr.json",
-              "sha256": "b1e03e6e31d3750b0a382cc5637f49729cf50c655d8db18c626819f9ba9c644d",
-              "size": 993
+              "sha256": "a41a7b151752a4197dceda6adf1c07a909265fc942ce5266d6edcde649d6c4c0",
+              "size": 1662
+            },
+            "ja": {
+              "path": "courses/tourist-sr/greetings-and-basics.ja.json",
+              "sha256": "a9edc34da6da75ad6b676815262057f73c892ac2f5542ce728d7b8eaf8260e43",
+              "size": 1761
+            },
+            "sv": {
+              "path": "courses/tourist-sr/greetings-and-basics.sv.json",
+              "sha256": "b5f1c67605698068391634abaab615c3c60eaf2d3debb4cd58021a9a9025d089",
+              "size": 1486
+            },
+            "ur": {
+              "path": "courses/tourist-sr/greetings-and-basics.ur.json",
+              "sha256": "6a13656f0d437b0727a202b6c6f196b4b4b6de1710ed77286e0ce8e6ec30f285",
+              "size": 1941
             }
           }
         },
         {
-          "id": "food-and-getting-around",
+          "id": "essentials-and-politeness",
           "title": {
-            "en": "Food and getting around",
-            "fr": "Se restaurer et se déplacer",
-            "sr": "Hrana i snalaženje"
+            "en": "Essentials and politeness",
+            "fr": "L'essentiel et la politesse",
+            "sr": "Osnovno i učtivost",
+            "de": "Das Wichtigste und Höflichkeit",
+            "sv": "Det viktigaste och artighet",
+            "ja": "必須表現と礼儀",
+            "ur": "ضروری الفاظ اور آداب"
           },
-          "concepts": 2,
+          "concepts": 16,
           "target": {
-            "path": "courses/tourist-sr/food-and-getting-around.zip",
-            "sha256": "c6dc5df4165a81891773ad952c246b4d66767c8a969033f2d6da70a9225eb0bb",
-            "size": 180921
+            "path": "courses/tourist-sr/essentials-and-politeness.zip",
+            "sha256": "7fe7b546ab3b364a50d63a0f210bf60d4dcbe2759aa2a18c5b66eae830848542",
+            "size": 848920
           },
           "text": {
+            "de": {
+              "path": "courses/tourist-sr/essentials-and-politeness.de.json",
+              "sha256": "584b8bc325e45f1514a008b8e4f0e5a1f2763e2f83f6934110b25a10ab4a0223",
+              "size": 2374
+            },
             "en": {
-              "path": "courses/tourist-sr/food-and-getting-around.en.json",
-              "sha256": "87b50df93d260b0d03d13946c548d4358c9a5d3f3fb816b16f4f1c02ce655eb2",
-              "size": 612
+              "path": "courses/tourist-sr/essentials-and-politeness.en.json",
+              "sha256": "db3eaf5b2193f00ba2a284e18be6f8c054bfa5b4dbfeec7b0af2e965f35fa3b7",
+              "size": 2283
             },
             "fr": {
-              "path": "courses/tourist-sr/food-and-getting-around.fr.json",
-              "sha256": "5e6b2237d04da74b47976aff151e3861dd5192d0c3f5484824460cb67e8970e2",
-              "size": 617
+              "path": "courses/tourist-sr/essentials-and-politeness.fr.json",
+              "sha256": "33e702ee2d862aa89d69417154f211ee1fdaca3d887d9eeba69d915dca45905d",
+              "size": 2308
+            },
+            "ja": {
+              "path": "courses/tourist-sr/essentials-and-politeness.ja.json",
+              "sha256": "3d3caaf4cbb69d7db7ddb826cfa871464afffe3744a9fba87150e5075556a681",
+              "size": 2764
+            },
+            "sv": {
+              "path": "courses/tourist-sr/essentials-and-politeness.sv.json",
+              "sha256": "a3c76a51009e1cd1883d3cf10b70d18c3c7d0fda5b45ffa6073f8a40759468dc",
+              "size": 2264
+            },
+            "ur": {
+              "path": "courses/tourist-sr/essentials-and-politeness.ur.json",
+              "sha256": "fd8d08e7ae5e72e4c4060bd0accbcd9a598f98a2be2f845d23d8080a9d062f24",
+              "size": 2715
+            }
+          }
+        },
+        {
+          "id": "directions-and-transport",
+          "title": {
+            "en": "Directions and transport",
+            "fr": "Directions et transports",
+            "sr": "Pravci i prevoz",
+            "de": "Wegbeschreibung und Verkehr",
+            "sv": "Vägbeskrivningar och transport",
+            "ja": "道案内と交通",
+            "ur": "راستے اور سفر"
+          },
+          "concepts": 17,
+          "target": {
+            "path": "courses/tourist-sr/directions-and-transport.zip",
+            "sha256": "bd7c1371b990ebfdde03531e1e1d47891b2d1493c1e169bcdc9ba787258c8b8a",
+            "size": 1164633
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sr/directions-and-transport.de.json",
+              "sha256": "14acb0b00e37ae349bfb75b9c4a6209884dc7bd1587cf24613b29ee996610a1f",
+              "size": 3023
+            },
+            "en": {
+              "path": "courses/tourist-sr/directions-and-transport.en.json",
+              "sha256": "d7dcf451fa39300033fc900cbce636b3800a2453c036afcf38306a3678f4cec3",
+              "size": 2981
+            },
+            "fr": {
+              "path": "courses/tourist-sr/directions-and-transport.fr.json",
+              "sha256": "a00a664262ece61331cf282c06af5d4900f9ab21842b4a9f9f798c0d665b119f",
+              "size": 3030
+            },
+            "ja": {
+              "path": "courses/tourist-sr/directions-and-transport.ja.json",
+              "sha256": "f9bd3ba013bfecde9cd042d2962dd90645038d4a78831a571b8e430c7dce6d4e",
+              "size": 3641
+            },
+            "sv": {
+              "path": "courses/tourist-sr/directions-and-transport.sv.json",
+              "sha256": "7d22b1d8c9f541a5f8f64d9ed1ef9289953dea1b03ddde5c6a3f42b62d3d5cd0",
+              "size": 2985
+            },
+            "ur": {
+              "path": "courses/tourist-sr/directions-and-transport.ur.json",
+              "sha256": "4ff0d5766e310a110adf1f812cd44367ef5453bbfea2d49cec8c278fd07dfd9d",
+              "size": 3702
+            }
+          }
+        },
+        {
+          "id": "food-and-drink",
+          "title": {
+            "en": "Food and drink",
+            "fr": "Manger et boire",
+            "sr": "Hrana i piće",
+            "de": "Essen und Trinken",
+            "sv": "Mat och dryck",
+            "ja": "食べ物と飲み物",
+            "ur": "کھانا پینا"
+          },
+          "concepts": 11,
+          "target": {
+            "path": "courses/tourist-sr/food-and-drink.zip",
+            "sha256": "84f4eaf14cb60f13eb1149781169aec93493d1956deca9a92eeb5111e59b76d5",
+            "size": 702354
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sr/food-and-drink.de.json",
+              "sha256": "9a7875da2d684afbe1ab228ee92e9cb1c2bafeb9c237a7abb85183c9ec116b6c",
+              "size": 1825
+            },
+            "en": {
+              "path": "courses/tourist-sr/food-and-drink.en.json",
+              "sha256": "82aac75524c45bacd1b154c913cbf1c5b3b0f0ab8db5bc893dbd23461cf620ab",
+              "size": 1875
+            },
+            "fr": {
+              "path": "courses/tourist-sr/food-and-drink.fr.json",
+              "sha256": "733c7b36a013f3b097686caac8bc3c14fb9e6e164698c09c4bf340b93af3ac12",
+              "size": 1948
+            },
+            "ja": {
+              "path": "courses/tourist-sr/food-and-drink.ja.json",
+              "sha256": "ea41fb02aa29c550d9e1499c57d3cb2659bd771bdc08643cef73eeddeb6b7693",
+              "size": 2160
+            },
+            "sv": {
+              "path": "courses/tourist-sr/food-and-drink.sv.json",
+              "sha256": "91308528ee5f964ebc5c62ff8a098f4582a1c905dd18a8a5b4c318bb73bd585e",
+              "size": 1863
+            },
+            "ur": {
+              "path": "courses/tourist-sr/food-and-drink.ur.json",
+              "sha256": "83356d270b6e53a5f40ecfe023640371b15b8febb3cd0c57b8628759a07751a4",
+              "size": 2341
+            }
+          }
+        },
+        {
+          "id": "accommodation-and-shopping",
+          "title": {
+            "en": "Accommodation and shopping",
+            "fr": "Hébergement et achats",
+            "sr": "Smeštaj i kupovina",
+            "de": "Unterkunft und Einkaufen",
+            "sv": "Boende och shopping",
+            "ja": "宿泊と買い物",
+            "ur": "قیام اور خریداری"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-sr/accommodation-and-shopping.zip",
+            "sha256": "63bddcd7b258301cdbd7b0b4fa579d73e5bf74d2b41e55bfc5d5ca75d25c11a7",
+            "size": 788135
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sr/accommodation-and-shopping.de.json",
+              "sha256": "a626e00bf0f3b727183a3f69f0d719f5bf5647c4858d943fdd49adc6940e3085",
+              "size": 1992
+            },
+            "en": {
+              "path": "courses/tourist-sr/accommodation-and-shopping.en.json",
+              "sha256": "37183aa503a67f3f1ee0f6b6f71f43023d6f477fcd5e89e70e0cf4072142d293",
+              "size": 2038
+            },
+            "fr": {
+              "path": "courses/tourist-sr/accommodation-and-shopping.fr.json",
+              "sha256": "37b6171d71b140894a7061fd2bf883df30f7bfbf2c60b2e71a025b9e97db5b62",
+              "size": 2060
+            },
+            "ja": {
+              "path": "courses/tourist-sr/accommodation-and-shopping.ja.json",
+              "sha256": "e96e0a629c99ab9ce4e37bb69171b54e0023ad50c7b6fb7a28137d2e1c311283",
+              "size": 2367
+            },
+            "sv": {
+              "path": "courses/tourist-sr/accommodation-and-shopping.sv.json",
+              "sha256": "61b51b90ee906d2bdf916cb9c9256f3f2a57430ca62801a99cd9c6f67c9f408e",
+              "size": 1965
+            },
+            "ur": {
+              "path": "courses/tourist-sr/accommodation-and-shopping.ur.json",
+              "sha256": "32e979068a63ca7abaa1904b13499b22a213c29337768efc173c46e93403d3fa",
+              "size": 2386
+            }
+          }
+        },
+        {
+          "id": "emergencies-and-health",
+          "title": {
+            "en": "Emergencies and health",
+            "fr": "Urgences et santé",
+            "sr": "Hitni slučajevi i zdravlje",
+            "de": "Notfälle und Gesundheit",
+            "sv": "Nödsituationer och hälsa",
+            "ja": "緊急時と健康",
+            "ur": "ہنگامی حالات اور صحت"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-sr/emergencies-and-health.zip",
+            "sha256": "b8ce91dd8c5a92df0cee7d247d8be41d1b29b9e45c6fe656b24170c44014ad60",
+            "size": 651200
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sr/emergencies-and-health.de.json",
+              "sha256": "d09664ad35f5fe903bae86532771bd058dba8360c5db487b107b0cd45f65753d",
+              "size": 1701
+            },
+            "en": {
+              "path": "courses/tourist-sr/emergencies-and-health.en.json",
+              "sha256": "72ff50aae52ed90101bc0ccbdb3538abe8587a45fad77754708e220042212e61",
+              "size": 1710
+            },
+            "fr": {
+              "path": "courses/tourist-sr/emergencies-and-health.fr.json",
+              "sha256": "0a6b7182b1885cf384943418faf19a7f9ca443a72edf528e481a02e51fd1a91d",
+              "size": 1672
+            },
+            "ja": {
+              "path": "courses/tourist-sr/emergencies-and-health.ja.json",
+              "sha256": "db623fbeeab904d70a2c17d19ba08c0694cc8797b46207f4f3dc544ca85f9b38",
+              "size": 2048
+            },
+            "sv": {
+              "path": "courses/tourist-sr/emergencies-and-health.sv.json",
+              "sha256": "9f661427e1577fc962a537e9ebbe42b72566d663f74d00fee0452711fc767830",
+              "size": 1734
+            },
+            "ur": {
+              "path": "courses/tourist-sr/emergencies-and-health.ur.json",
+              "sha256": "328c831f106a86c78c28abf545bda18c7cb8acf67b2232deebc1914b3b900995",
+              "size": 1974
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tourist-sv",
+      "version": "0.1.0",
+      "min_app_version": "1.0.0",
+      "kind": "tourist",
+      "target_language": "sv",
+      "title": {
+        "en": "Swedish for Tourists",
+        "fr": "Le suédois pour les touristes",
+        "sr": "Švedski za turiste",
+        "de": "Schwedisch für Touristen",
+        "sv": "Svenska för turister",
+        "ja": "旅行者のためのスウェーデン語",
+        "ur": "سیاحوں کے لیے سویڈش"
+      },
+      "sources": [
+        "de",
+        "en",
+        "fr",
+        "ja",
+        "sr",
+        "ur"
+      ],
+      "units": [
+        {
+          "id": "greetings-and-basics",
+          "title": {
+            "en": "Greetings and basics",
+            "fr": "Salutations et bases",
+            "sr": "Pozdravi i osnove",
+            "de": "Grüße und Grundlagen",
+            "sv": "Hälsningar och grunder",
+            "ja": "あいさつと基本",
+            "ur": "سلام دعا اور بنیادی باتیں"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-sv/greetings-and-basics.zip",
+            "sha256": "e44160229c74981274eaa75d2ecb211e6576d890bbb8190673265760267346b2",
+            "size": 401530
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sv/greetings-and-basics.de.json",
+              "sha256": "f80e81e84479f653e1be5110e81c7884f787131afbceba5166e4184070754696",
+              "size": 2347
+            },
+            "en": {
+              "path": "courses/tourist-sv/greetings-and-basics.en.json",
+              "sha256": "9510b0e1da5890dd25bad84161a87da87030a25e1af82c3718defc2bea5edaaf",
+              "size": 2363
+            },
+            "fr": {
+              "path": "courses/tourist-sv/greetings-and-basics.fr.json",
+              "sha256": "a1edbd3cad7b733067a29e7dafb6448a3a667e8e219f3df73b50d32e9187250f",
+              "size": 2550
+            },
+            "ja": {
+              "path": "courses/tourist-sv/greetings-and-basics.ja.json",
+              "sha256": "08357f1e12a6d9fac99a7d036e0d01d13331e1145df3721ba474133a5fba47f7",
+              "size": 2002
+            },
+            "sr": {
+              "path": "courses/tourist-sv/greetings-and-basics.sr.json",
+              "sha256": "0623c3bfe7ca880ce654d5f14a03c746695b5f38d2fbd56dff52efa811e41a48",
+              "size": 2705
+            },
+            "ur": {
+              "path": "courses/tourist-sv/greetings-and-basics.ur.json",
+              "sha256": "ac7ae2217ef2131285be9a1a5fbf40b1e4177a294999028b3c7e39fa8ac654c0",
+              "size": 2092
+            }
+          }
+        },
+        {
+          "id": "essentials-and-politeness",
+          "title": {
+            "en": "Essentials and politeness",
+            "fr": "L'essentiel et la politesse",
+            "sr": "Osnovno i učtivost",
+            "de": "Das Wichtigste und Höflichkeit",
+            "sv": "Det viktigaste och artighet",
+            "ja": "必須表現と礼儀",
+            "ur": "ضروری الفاظ اور آداب"
+          },
+          "concepts": 16,
+          "target": {
+            "path": "courses/tourist-sv/essentials-and-politeness.zip",
+            "sha256": "c6d6706c35fdf3acdda9b1c4e50acba0d41afa61f5637356bdc05c1dee53f97b",
+            "size": 580964
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sv/essentials-and-politeness.de.json",
+              "sha256": "dc94b7b2b8b0e691ecd106f439711ea4d397791a0da0ae16e10418de7a8b0f4c",
+              "size": 2991
+            },
+            "en": {
+              "path": "courses/tourist-sv/essentials-and-politeness.en.json",
+              "sha256": "a9af447434054c5aac439f55a698015475c79856304147e97e6296f3fbd1aab2",
+              "size": 2966
+            },
+            "fr": {
+              "path": "courses/tourist-sv/essentials-and-politeness.fr.json",
+              "sha256": "6274f52fd198c8133e49f869fe64abd799e7a9759c3e10d5e9c185bcd381b804",
+              "size": 3113
+            },
+            "ja": {
+              "path": "courses/tourist-sv/essentials-and-politeness.ja.json",
+              "sha256": "3d64c2ca41c52dd97539d21457063bf1edd2c5ced4cfe8012aaab0230924414c",
+              "size": 2882
+            },
+            "sr": {
+              "path": "courses/tourist-sv/essentials-and-politeness.sr.json",
+              "sha256": "369f7c1850c35c55fe098c4cab53e52005675ee7fb955f6314b0ecb8399cc9e3",
+              "size": 3351
+            },
+            "ur": {
+              "path": "courses/tourist-sv/essentials-and-politeness.ur.json",
+              "sha256": "3a2f26aaa20829595db16bc8a18a48c078f96a7cd0aa904c427836e663d2b1c2",
+              "size": 2851
+            }
+          }
+        },
+        {
+          "id": "directions-and-transport",
+          "title": {
+            "en": "Directions and transport",
+            "fr": "Directions et transports",
+            "sr": "Pravci i prevoz",
+            "de": "Wegbeschreibung und Verkehr",
+            "sv": "Vägbeskrivningar och transport",
+            "ja": "道案内と交通",
+            "ur": "راستے اور سفر"
+          },
+          "concepts": 17,
+          "target": {
+            "path": "courses/tourist-sv/directions-and-transport.zip",
+            "sha256": "2a93725d8d6669e391bc4ba313cc65b5f2bb650a816ec7da0fef9f29d3e2f015",
+            "size": 829619
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sv/directions-and-transport.de.json",
+              "sha256": "1a696fab2d9456785c0c9c04d5313e9a3b7d8eb0cac57d441b39d9fc69307bd7",
+              "size": 3677
+            },
+            "en": {
+              "path": "courses/tourist-sv/directions-and-transport.en.json",
+              "sha256": "8150224fad677589a1ebb50f6e98c624be720b5f632b5cc4b2a08d07c6758560",
+              "size": 3607
+            },
+            "fr": {
+              "path": "courses/tourist-sv/directions-and-transport.fr.json",
+              "sha256": "cf6291862a51074df158ffea08715bada95935260e217c5923833b675d47d27a",
+              "size": 3813
+            },
+            "ja": {
+              "path": "courses/tourist-sv/directions-and-transport.ja.json",
+              "sha256": "4faead472184df2147ab89169b55e368b3db46c70bf6cffc5a73456b91167991",
+              "size": 3502
+            },
+            "sr": {
+              "path": "courses/tourist-sv/directions-and-transport.sr.json",
+              "sha256": "21ebb61002da8b7280e0ff8fd0363c55f4994c0cfe8d3f11f2af1f8508163d81",
+              "size": 4268
+            },
+            "ur": {
+              "path": "courses/tourist-sv/directions-and-transport.ur.json",
+              "sha256": "e6c5215aa03c87e86b1993b7c80cfca8e3448ca1c66b9a238e5a0ef7d43a4de1",
+              "size": 3544
+            }
+          }
+        },
+        {
+          "id": "food-and-drink",
+          "title": {
+            "en": "Food and drink",
+            "fr": "Manger et boire",
+            "sr": "Hrana i piće",
+            "de": "Essen und Trinken",
+            "sv": "Mat och dryck",
+            "ja": "食べ物と飲み物",
+            "ur": "کھانا پینا"
+          },
+          "concepts": 11,
+          "target": {
+            "path": "courses/tourist-sv/food-and-drink.zip",
+            "sha256": "f2d35456a5fa501402552229814fc22c9f2030af6ff75c6f0520b9ddb85b7b90",
+            "size": 497290
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sv/food-and-drink.de.json",
+              "sha256": "6edfa56104769b2db7a703ad61d7b192d825acbb585260c4f9e82857fd0172e2",
+              "size": 2480
+            },
+            "en": {
+              "path": "courses/tourist-sv/food-and-drink.en.json",
+              "sha256": "7221c7582b794344bd7d3a702d87d0cd26b58bbe55b4527ed41e1c0f9436b56c",
+              "size": 2447
+            },
+            "fr": {
+              "path": "courses/tourist-sv/food-and-drink.fr.json",
+              "sha256": "2bf92e29c3818784db6647bea860adade91579bce3baa05a4d0adb28a8cf05d5",
+              "size": 2635
+            },
+            "ja": {
+              "path": "courses/tourist-sv/food-and-drink.ja.json",
+              "sha256": "272eee81b6cb258a707cdd3e70ed970b25d545e23a8da359c2aca321c44d2686",
+              "size": 2223
+            },
+            "sr": {
+              "path": "courses/tourist-sv/food-and-drink.sr.json",
+              "sha256": "7078dd5ce63ea6442ffde51a5b74b0b14e17c1a6e1e9dd25dda8af0bff2d09bb",
+              "size": 2799
+            },
+            "ur": {
+              "path": "courses/tourist-sv/food-and-drink.ur.json",
+              "sha256": "c835e6077c786aa61f5c91c0d273513d3a748407f2fef2b4920dcc54dfc84d5e",
+              "size": 2342
+            }
+          }
+        },
+        {
+          "id": "accommodation-and-shopping",
+          "title": {
+            "en": "Accommodation and shopping",
+            "fr": "Hébergement et achats",
+            "sr": "Smeštaj i kupovina",
+            "de": "Unterkunft und Einkaufen",
+            "sv": "Boende och shopping",
+            "ja": "宿泊と買い物",
+            "ur": "قیام اور خریداری"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-sv/accommodation-and-shopping.zip",
+            "sha256": "aead852b63e2c9ef8169ed0dcf66894a1c75ba80d26a3df161520559c6009a1a",
+            "size": 595923
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sv/accommodation-and-shopping.de.json",
+              "sha256": "eda1e208b9cebf579948cf7aee1e3174c85bac802c4e23ba35b32174856c43c8",
+              "size": 2976
+            },
+            "en": {
+              "path": "courses/tourist-sv/accommodation-and-shopping.en.json",
+              "sha256": "d2fc1f27bcdd167613745333af399329a4927df950f0294d3ebabd80637d4432",
+              "size": 2982
+            },
+            "fr": {
+              "path": "courses/tourist-sv/accommodation-and-shopping.fr.json",
+              "sha256": "f9a7bd6770a2ad5e8bc865ac4db9307f995e28095933493b5fdf29bdb179b489",
+              "size": 3148
+            },
+            "ja": {
+              "path": "courses/tourist-sv/accommodation-and-shopping.ja.json",
+              "sha256": "12ed86bd5d9a4d4938c970a83abfb1253b4a7a000d3f1efc0626d199323c2616",
+              "size": 2537
+            },
+            "sr": {
+              "path": "courses/tourist-sv/accommodation-and-shopping.sr.json",
+              "sha256": "8096fb25e7859101f2a8e2942bb17780ca66030ea27eebaa5cc95d0d10be6a43",
+              "size": 3221
+            },
+            "ur": {
+              "path": "courses/tourist-sv/accommodation-and-shopping.ur.json",
+              "sha256": "44dae3f99da93ad46ba969efd220515c75b8fad3a5362ad89854275647514cd7",
+              "size": 2528
+            }
+          }
+        },
+        {
+          "id": "emergencies-and-health",
+          "title": {
+            "en": "Emergencies and health",
+            "fr": "Urgences et santé",
+            "sr": "Hitni slučajevi i zdravlje",
+            "de": "Notfälle und Gesundheit",
+            "sv": "Nödsituationer och hälsa",
+            "ja": "緊急時と健康",
+            "ur": "ہنگامی حالات اور صحت"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-sv/emergencies-and-health.zip",
+            "sha256": "ff31f6dd634838920821518b049ad471245edd2a0c750e662861ca8e54ecd803",
+            "size": 547056
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-sv/emergencies-and-health.de.json",
+              "sha256": "71e4ba8a3e8e6738104a299411d7d1a76b807bcd8887570bdc7702f856b78104",
+              "size": 2468
+            },
+            "en": {
+              "path": "courses/tourist-sv/emergencies-and-health.en.json",
+              "sha256": "5f7aff8fb980c98190dc1334247219747bd5e99328afd8416c67c9461bad1943",
+              "size": 2386
+            },
+            "fr": {
+              "path": "courses/tourist-sv/emergencies-and-health.fr.json",
+              "sha256": "eecea83dc225ede8671d072cf22bb03e6a903eb9dade8682eecb43e49479de6d",
+              "size": 2492
+            },
+            "ja": {
+              "path": "courses/tourist-sv/emergencies-and-health.ja.json",
+              "sha256": "761ad0a739e49e855b63f65d0b849f24a2b546939a7c23052ed70383b59fbaf3",
+              "size": 2143
+            },
+            "sr": {
+              "path": "courses/tourist-sv/emergencies-and-health.sr.json",
+              "sha256": "d3fb3f4937bc4ba47c5d591c3c8e65c47d8198eda00eba13b236ee6ac3bc5c6e",
+              "size": 2671
+            },
+            "ur": {
+              "path": "courses/tourist-sv/emergencies-and-health.ur.json",
+              "sha256": "9ab9e5d1e82076e7941aa937fc75570a84eca0617755d96b416328f890ae08bb",
+              "size": 2139
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tourist-ur",
+      "version": "0.1.0",
+      "min_app_version": "1.0.0",
+      "kind": "tourist",
+      "target_language": "ur",
+      "title": {
+        "en": "Urdu for Tourists",
+        "fr": "L'ourdou pour les touristes",
+        "sr": "Urdu za turiste",
+        "de": "Urdu für Touristen",
+        "sv": "Urdu för turister",
+        "ja": "旅行者のためのウルドゥー語",
+        "ur": "سیاحوں کے لیے اردو"
+      },
+      "sources": [
+        "de",
+        "en",
+        "fr",
+        "ja",
+        "sr",
+        "sv"
+      ],
+      "units": [
+        {
+          "id": "greetings-and-basics",
+          "title": {
+            "en": "Greetings and basics",
+            "fr": "Salutations et bases",
+            "sr": "Pozdravi i osnove",
+            "de": "Grüße und Grundlagen",
+            "sv": "Hälsningar och grunder",
+            "ja": "あいさつと基本",
+            "ur": "سلام دعا اور بنیادی باتیں"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-ur/greetings-and-basics.zip",
+            "sha256": "91b697966d3d807b247216ec4012e303de3c7113c3966dce9314639e6c555423",
+            "size": 401861
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ur/greetings-and-basics.de.json",
+              "sha256": "a181f6e63cb2d5c39ff5fbb75b3d70bb9d4b795d9b01dd3797b1baa556de2ae9",
+              "size": 1638
+            },
+            "en": {
+              "path": "courses/tourist-ur/greetings-and-basics.en.json",
+              "sha256": "3d46b773977b777f0e39c85d752f99e5b20b554a3fb2c751310ccb475d877d6d",
+              "size": 1652
+            },
+            "fr": {
+              "path": "courses/tourist-ur/greetings-and-basics.fr.json",
+              "sha256": "e03d076f0abf27bf77177b1659667ab8deac0e362bb074e319a5aff7f5bdafca",
+              "size": 1761
+            },
+            "ja": {
+              "path": "courses/tourist-ur/greetings-and-basics.ja.json",
+              "sha256": "986e480c7627a3176f08c7c80982b780460e17fd5cce38e9ea728c1f824c00dc",
+              "size": 2101
+            },
+            "sr": {
+              "path": "courses/tourist-ur/greetings-and-basics.sr.json",
+              "sha256": "b85e0c39130d1957885bdc8f74b3f87dcdc6af48b95101ab6973a40999a34fc7",
+              "size": 2006
+            },
+            "sv": {
+              "path": "courses/tourist-ur/greetings-and-basics.sv.json",
+              "sha256": "53a0ee341415f98539c4695437dea0aacabb5a63d544569376e9ba81aa1593ee",
+              "size": 1581
+            }
+          }
+        },
+        {
+          "id": "essentials-and-politeness",
+          "title": {
+            "en": "Essentials and politeness",
+            "fr": "L'essentiel et la politesse",
+            "sr": "Osnovno i učtivost",
+            "de": "Das Wichtigste und Höflichkeit",
+            "sv": "Det viktigaste och artighet",
+            "ja": "必須表現と礼儀",
+            "ur": "ضروری الفاظ اور آداب"
+          },
+          "concepts": 16,
+          "target": {
+            "path": "courses/tourist-ur/essentials-and-politeness.zip",
+            "sha256": "836aafc028bb32e13aff12ca44f3b6bbd3cae3676700d8122a211c118a58ac03",
+            "size": 614410
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ur/essentials-and-politeness.de.json",
+              "sha256": "d782d45c275af1a92746693967071f24b6c0caeed8f7ee49775b6a0737968b33",
+              "size": 2405
+            },
+            "en": {
+              "path": "courses/tourist-ur/essentials-and-politeness.en.json",
+              "sha256": "0bd9bf03b3282d52d01760c3a146a0c419d00127eddfc072a8c2876adb0b8cba",
+              "size": 2387
+            },
+            "fr": {
+              "path": "courses/tourist-ur/essentials-and-politeness.fr.json",
+              "sha256": "7dbe14422fff612594fa2ec856df43a6a02dc31ccc1b47b43da09c00b70470ee",
+              "size": 2438
+            },
+            "ja": {
+              "path": "courses/tourist-ur/essentials-and-politeness.ja.json",
+              "sha256": "f0adfaf250e20132c036bdb3aeb272ce92db096830329cb20b084040cfb9d274",
+              "size": 3005
+            },
+            "sr": {
+              "path": "courses/tourist-ur/essentials-and-politeness.sr.json",
+              "sha256": "0011d08b88e818cd49e9456b6df61be35c01fdcb3e62a44c86d816e75b00d318",
+              "size": 2748
+            },
+            "sv": {
+              "path": "courses/tourist-ur/essentials-and-politeness.sv.json",
+              "sha256": "86bbd5bbec68e6add74032d5cd4fcefa4da9dda4e26747279ea95c16b0b84d1f",
+              "size": 2300
+            }
+          }
+        },
+        {
+          "id": "directions-and-transport",
+          "title": {
+            "en": "Directions and transport",
+            "fr": "Directions et transports",
+            "sr": "Pravci i prevoz",
+            "de": "Wegbeschreibung und Verkehr",
+            "sv": "Vägbeskrivningar och transport",
+            "ja": "道案内と交通",
+            "ur": "راستے اور سفر"
+          },
+          "concepts": 17,
+          "target": {
+            "path": "courses/tourist-ur/directions-and-transport.zip",
+            "sha256": "8768214fe987189025f3a6f3dbc48785b567788f000685df3214aafb0e797034",
+            "size": 825336
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ur/directions-and-transport.de.json",
+              "sha256": "65584dadc4fdfb0b5d755148c9699a3935952b111336bc3319449f0378fdfcf5",
+              "size": 3045
+            },
+            "en": {
+              "path": "courses/tourist-ur/directions-and-transport.en.json",
+              "sha256": "9c46213ba37ddf670c3b430293c0637e84cbd2d1c30342c4a4a712ef236c05c5",
+              "size": 3059
+            },
+            "fr": {
+              "path": "courses/tourist-ur/directions-and-transport.fr.json",
+              "sha256": "9c771163391b12dd38580df70953c1ce79072b34dbba7189121d37d7a286b504",
+              "size": 3126
+            },
+            "ja": {
+              "path": "courses/tourist-ur/directions-and-transport.ja.json",
+              "sha256": "4180c2eec3ab5bfe83b920dac83225f8126aa7ccdb5585bd5e7a99ff820cb652",
+              "size": 3866
+            },
+            "sr": {
+              "path": "courses/tourist-ur/directions-and-transport.sr.json",
+              "sha256": "b9e06396aecc8d627f9e00d3612ef5f7869d8870529c74d3ecd0144523d079cf",
+              "size": 3646
+            },
+            "sv": {
+              "path": "courses/tourist-ur/directions-and-transport.sv.json",
+              "sha256": "24da863a1a4126dff258dbaf604f6a60617f3dacde38f3b48875566e5725e54a",
+              "size": 2979
+            }
+          }
+        },
+        {
+          "id": "food-and-drink",
+          "title": {
+            "en": "Food and drink",
+            "fr": "Manger et boire",
+            "sr": "Hrana i piće",
+            "de": "Essen und Trinken",
+            "sv": "Mat och dryck",
+            "ja": "食べ物と飲み物",
+            "ur": "کھانا پینا"
+          },
+          "concepts": 11,
+          "target": {
+            "path": "courses/tourist-ur/food-and-drink.zip",
+            "sha256": "196134801d1f9bca58aa8e2717cda9080f19da5d85a313f575c19fd9de0eca27",
+            "size": 536120
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ur/food-and-drink.de.json",
+              "sha256": "014ff84024673474003afc832c7a929c419fbfa3207dc7d3d78e5de55043dd0f",
+              "size": 2098
+            },
+            "en": {
+              "path": "courses/tourist-ur/food-and-drink.en.json",
+              "sha256": "49fbd27a23f7dbceb778ba86ba356697fe570f6f43504409f41388f70167b98c",
+              "size": 2075
+            },
+            "fr": {
+              "path": "courses/tourist-ur/food-and-drink.fr.json",
+              "sha256": "ca0e4e1932abf6d0b6e9af34e3dde2935c85b35d3120d787e54ffce915721427",
+              "size": 2245
+            },
+            "ja": {
+              "path": "courses/tourist-ur/food-and-drink.ja.json",
+              "sha256": "35b6adad1671ce83276a3d1d6ed532a2a87c72d24c531578d2e237ffcb2cb585",
+              "size": 2672
+            },
+            "sr": {
+              "path": "courses/tourist-ur/food-and-drink.sr.json",
+              "sha256": "f5a12d55d3de24eed529f626e5dd7489ad41c1c828294cd68646bdb08821d0f2",
+              "size": 2408
+            },
+            "sv": {
+              "path": "courses/tourist-ur/food-and-drink.sv.json",
+              "sha256": "18c1376975de3c6eb7fd10da5010664c9053e4f5ad25432768280a1cff11cddd",
+              "size": 2027
+            }
+          }
+        },
+        {
+          "id": "accommodation-and-shopping",
+          "title": {
+            "en": "Accommodation and shopping",
+            "fr": "Hébergement et achats",
+            "sr": "Smeštaj i kupovina",
+            "de": "Unterkunft und Einkaufen",
+            "sv": "Boende och shopping",
+            "ja": "宿泊と買い物",
+            "ur": "قیام اور خریداری"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-ur/accommodation-and-shopping.zip",
+            "sha256": "713920acae043c19a94d2640e1973752b9f86caa258d8276a61aa5129a184c60",
+            "size": 533529
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ur/accommodation-and-shopping.de.json",
+              "sha256": "ac0e36e21105d9c0463cc74d1273b846a4d466360a01bc9df23ee0e1ff44a7f1",
+              "size": 2079
+            },
+            "en": {
+              "path": "courses/tourist-ur/accommodation-and-shopping.en.json",
+              "sha256": "ec4c9bd2fc81fbe623330e015595ffa3d48eec3375b8b0453d7517672f4cf871",
+              "size": 2075
+            },
+            "fr": {
+              "path": "courses/tourist-ur/accommodation-and-shopping.fr.json",
+              "sha256": "b06237b23c79de4f21ca6de7bc678f267c5dc9fbb9f21bcf3ffbae511eae062e",
+              "size": 2114
+            },
+            "ja": {
+              "path": "courses/tourist-ur/accommodation-and-shopping.ja.json",
+              "sha256": "61fc3d813261a99a2a3eeb4a4d4a504018eb5db6f6edb8d57969fba01758636a",
+              "size": 2599
+            },
+            "sr": {
+              "path": "courses/tourist-ur/accommodation-and-shopping.sr.json",
+              "sha256": "77d8294b03fcc5912f16d119d8d49b8b867f885da8452fb40127097697abb959",
+              "size": 2376
+            },
+            "sv": {
+              "path": "courses/tourist-ur/accommodation-and-shopping.sv.json",
+              "sha256": "893d1f5c2cca286932b02626cbf3b6f207a8f969e861888cbbd86a83561af177",
+              "size": 1982
+            }
+          }
+        },
+        {
+          "id": "emergencies-and-health",
+          "title": {
+            "en": "Emergencies and health",
+            "fr": "Urgences et santé",
+            "sr": "Hitni slučajevi i zdravlje",
+            "de": "Notfälle und Gesundheit",
+            "sv": "Nödsituationer och hälsa",
+            "ja": "緊急時と健康",
+            "ur": "ہنگامی حالات اور صحت"
+          },
+          "concepts": 10,
+          "target": {
+            "path": "courses/tourist-ur/emergencies-and-health.zip",
+            "sha256": "f6fe3f72ac374df3bf04059d63af0486390cb7f1430d77618df9ad9ee5fbfaba",
+            "size": 418720
+          },
+          "text": {
+            "de": {
+              "path": "courses/tourist-ur/emergencies-and-health.de.json",
+              "sha256": "71547c8aed4dbce0065dff1f3a26ce791c620d116980249d99dfaea826dc7393",
+              "size": 1695
+            },
+            "en": {
+              "path": "courses/tourist-ur/emergencies-and-health.en.json",
+              "sha256": "5ce4c6300a31469f7fcbe356533968cfc3a190274e2d4673b4b08342b927d667",
+              "size": 1669
+            },
+            "fr": {
+              "path": "courses/tourist-ur/emergencies-and-health.fr.json",
+              "sha256": "a78c46ac67654a849aa5d1a8420cace55836ed28c07a6aed8555e5257a958aa1",
+              "size": 1709
+            },
+            "ja": {
+              "path": "courses/tourist-ur/emergencies-and-health.ja.json",
+              "sha256": "f35a66593824b8ad75f813b637908d7f5f265dfc826a0c9a58567f40850944ad",
+              "size": 2067
+            },
+            "sr": {
+              "path": "courses/tourist-ur/emergencies-and-health.sr.json",
+              "sha256": "ab0325c9626713c792013758fd83f8492aa619bdc1a227211411088d8f72145f",
+              "size": 1983
+            },
+            "sv": {
+              "path": "courses/tourist-ur/emergencies-and-health.sv.json",
+              "sha256": "e74797e6c25641499978ae72ff6b8ee189e1f6806626f6c33da7e08beba5a11d",
+              "size": 1657
             }
           }
         }

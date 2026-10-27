@@ -13,11 +13,17 @@ abstract class AudioPlayerService {
 class JustAudioPlayerService implements AudioPlayerService {
   final AudioPlayer _player = AudioPlayer();
 
+  /// Bumped by every play and stop, so a clip still loading when the learner
+  /// moves on is dropped instead of starting late.
+  int _generation = 0;
+
   @override
   Future<void> playFile(String path) async {
+    final generation = ++_generation;
     try {
       await _player.stop();
       await _player.setFilePath(path);
+      if (generation != _generation) return;
       // Not awaited: play() completes when the clip ends, and callers only
       // need it to start.
       _player.play();
@@ -28,7 +34,10 @@ class JustAudioPlayerService implements AudioPlayerService {
   }
 
   @override
-  Future<void> stop() => _player.stop();
+  Future<void> stop() {
+    _generation++;
+    return _player.stop();
+  }
 
   @override
   Future<void> dispose() => _player.dispose();

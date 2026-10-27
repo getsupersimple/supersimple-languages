@@ -56,6 +56,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get incorrectFeedback => 'Not quite';
 
   @override
+  String get closeFeedback => 'Close!';
+
+  @override
+  String get showAnswerButton => 'Show answer';
+
+  @override
+  String get answerFeedback => 'Answer';
+
+  @override
   String correctAnswerWas(String answer) {
     return 'Correct answer: $answer';
   }

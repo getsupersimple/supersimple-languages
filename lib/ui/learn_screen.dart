@@ -9,7 +9,11 @@ import 'languages.dart';
 
 /// The first screen: a flag for every language the learner can study from their own.
 class LearnScreen extends StatelessWidget {
-  const LearnScreen({super.key, required this.services, required this.manifest});
+  const LearnScreen({
+    super.key,
+    required this.services,
+    required this.manifest,
+  });
 
   final AppServices services;
   final Manifest manifest;
@@ -22,14 +26,23 @@ class LearnScreen extends StatelessWidget {
       listenable: services.settings,
       builder: (context, _) {
         final source = resolveSourceLanguage(
-            services.settings.sourceLanguage, manifest.sourceLanguages, uiLanguage);
-        final courses = [for (final c in manifest.courses) if (c.sources.contains(source)) c];
+          services.settings.sourceLanguage,
+          manifest.sourceLanguages,
+          uiLanguage,
+        );
+        final courses = [
+          for (final c in manifest.courses)
+            if (c.sources.contains(source)) c,
+        ];
         return Scaffold(
           appBar: AppBar(title: Text(l10n.appTitle)),
           body: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              Text(l10n.learnHeading, style: Theme.of(context).textTheme.headlineSmall),
+              Text(
+                l10n.learnHeading,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
               const SizedBox(height: 4),
               Text(l10n.learnFilterNote(languageInfo(source).name)),
               const SizedBox(height: 16),
@@ -44,13 +57,15 @@ class LearnScreen extends StatelessWidget {
                       _LanguageCard(
                         course: course,
                         sourceLanguage: source,
-                        onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
-                          builder: (_) => CourseScreen(
-                            services: services,
-                            course: course,
-                            sourceLanguage: source,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => CourseScreen(
+                              services: services,
+                              course: course,
+                              sourceLanguage: source,
+                            ),
                           ),
-                        )),
+                        ),
                       ),
                   ],
                 ),
@@ -63,7 +78,11 @@ class LearnScreen extends StatelessWidget {
 }
 
 class _LanguageCard extends StatelessWidget {
-  const _LanguageCard({required this.course, required this.sourceLanguage, required this.onTap});
+  const _LanguageCard({
+    required this.course,
+    required this.sourceLanguage,
+    required this.onTap,
+  });
 
   final CourseInfo course;
   final String sourceLanguage;
@@ -85,10 +104,39 @@ class _LanguageCard extends StatelessWidget {
               children: [
                 Text(info.flag, style: const TextStyle(fontSize: 64)),
                 const SizedBox(height: 8),
-                Text(info.name, style: theme.textTheme.titleMedium, textAlign: TextAlign.center),
+                Text(
+                  info.name,
+                  style: theme.textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 const SizedBox(height: 4),
-                Text(resolveLocalized(course.title, sourceLanguage),
-                    style: theme.textTheme.bodySmall, textAlign: TextAlign.center),
+                // Always two lines tall, so every card is the same height
+                // however long the title is and however large the text scale.
+                Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Visibility(
+                      visible: false,
+                      maintainSize: true,
+                      maintainAnimation: true,
+                      maintainState: true,
+                      child: Text(
+                        '\n',
+                        style: theme.textTheme.bodySmall,
+                        maxLines: 2,
+                      ),
+                    ),
+                    Text(
+                      resolveLocalized(course.title, sourceLanguage),
+                      style: theme.textTheme.bodySmall,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

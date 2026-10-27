@@ -9,9 +9,14 @@ class LanguageInfo {
 }
 
 const _languages = {
+  'de': LanguageInfo('Deutsch', '🇩🇪'),
   'en': LanguageInfo('English', '🇬🇧'),
   'fr': LanguageInfo('Français', '🇫🇷'),
+  'ja': LanguageInfo('日本語', '🇯🇵'),
   'sr': LanguageInfo('Srpski', '🇷🇸'),
+  'sv': LanguageInfo('Svenska', '🇸🇪'),
+  'ur': LanguageInfo('اردو', '🇵🇰'),
 };
 
-LanguageInfo languageInfo(String code) => _languages[code] ?? LanguageInfo(code, '🏳️');
+LanguageInfo languageInfo(String code) =>
+    _languages[code] ?? LanguageInfo(code, '🏳️');

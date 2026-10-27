@@ -7,9 +7,16 @@ typedef Json = Map<String, dynamic>;
 Map<String, String> _strings(Object? value) =>
     (value as Map).map((k, v) => MapEntry(k as String, v as String));
 
-/// Picks [preferred] if present, otherwise any available script.
+/// Picks the script to show: Japanese and Urdu text is shown in its own script
+/// whatever [preferred] is (its romanisation goes under it, see [readingOf]); otherwise
+/// [preferred] if present, otherwise any available script.
 String pickScript(Map<String, String> text, String preferred) =>
-    text[preferred] ?? text.values.first;
+    text['Jpan'] ?? text['Arab'] ?? text[preferred] ?? text.values.first;
+
+/// The romanised reading shown under text written in a script learners may not
+/// read (Japanese, Urdu), or null when the text needs none.
+String? readingOf(Map<String, String> text) =>
+    text.containsKey('Jpan') || text.containsKey('Arab') ? text['Latn'] : null;
 
 /// Picks the learner's language, falling back to English, then anything.
 String resolveLocalized(Map<String, String> text, String language) =>
@@ -19,10 +26,10 @@ class FileRef {
   const FileRef({required this.path, required this.sha256, required this.size});
 
   factory FileRef.fromJson(Json json) => FileRef(
-        path: json['path'] as String,
-        sha256: json['sha256'] as String,
-        size: json['size'] as int,
-      );
+    path: json['path'] as String,
+    sha256: json['sha256'] as String,
+    size: json['size'] as int,
+  );
 
   final String path;
   final String sha256;
@@ -39,14 +46,14 @@ class UnitInfo {
   });
 
   factory UnitInfo.fromJson(Json json) => UnitInfo(
-        id: json['id'] as String,
-        title: _strings(json['title']),
-        concepts: json['concepts'] as int,
-        target: FileRef.fromJson(json['target'] as Json),
-        text: (json['text'] as Map).map(
-          (k, v) => MapEntry(k as String, FileRef.fromJson(v as Json)),
-        ),
-      );
+    id: json['id'] as String,
+    title: _strings(json['title']),
+    concepts: json['concepts'] as int,
+    target: FileRef.fromJson(json['target'] as Json),
+    text: (json['text'] as Map).map(
+      (k, v) => MapEntry(k as String, FileRef.fromJson(v as Json)),
+    ),
+  );
 
   final String id;
   final Map<String, String> title;
@@ -68,17 +75,17 @@ class CourseInfo {
   });
 
   factory CourseInfo.fromJson(Json json) => CourseInfo(
-        id: json['id'] as String,
-        version: json['version'] as String,
-        minAppVersion: json['min_app_version'] as String,
-        kind: json['kind'] as String,
-        targetLanguage: json['target_language'] as String,
-        title: _strings(json['title']),
-        sources: (json['sources'] as List).cast<String>(),
-        units: (json['units'] as List)
-            .map((u) => UnitInfo.fromJson(u as Json))
-            .toList(),
-      );
+    id: json['id'] as String,
+    version: json['version'] as String,
+    minAppVersion: json['min_app_version'] as String,
+    kind: json['kind'] as String,
+    targetLanguage: json['target_language'] as String,
+    title: _strings(json['title']),
+    sources: (json['sources'] as List).cast<String>(),
+    units: (json['units'] as List)
+        .map((u) => UnitInfo.fromJson(u as Json))
+        .toList(),
+  );
 
   final String id;
 
@@ -104,7 +111,9 @@ class Manifest {
 
   factory Manifest.fromJson(Json json) {
     if (json['schema_version'] != 1) {
-      throw FormatException('Unsupported manifest schema ${json['schema_version']}');
+      throw FormatException(
+        'Unsupported manifest schema ${json['schema_version']}',
+      );
     }
     return Manifest(
       contentVersion: json['content_version'] as String,
@@ -122,7 +131,8 @@ class Manifest {
   final List<CourseInfo> courses;
 
   /// Every language some course can be learned from, sorted.
-  List<String> get sourceLanguages => ({for (final c in courses) ...c.sources}).toList()..sort();
+  List<String> get sourceLanguages =>
+      ({for (final c in courses) ...c.sources}).toList()..sort();
 }
 
 class Recording {
@@ -136,13 +146,13 @@ class Recording {
   });
 
   factory Recording.fromJson(Json json) => Recording(
-        id: json['id'] as String,
-        file: json['file'] as String,
-        sha256: json['sha256'] as String,
-        durationMs: json['duration_ms'] as int,
-        voiceId: (json['voice'] as Json)['voice_id'] as String,
-        gender: (json['voice'] as Json)['gender'] as String,
-      );
+    id: json['id'] as String,
+    file: json['file'] as String,
+    sha256: json['sha256'] as String,
+    durationMs: json['duration_ms'] as int,
+    voiceId: (json['voice'] as Json)['voice_id'] as String,
+    gender: (json['voice'] as Json)['gender'] as String,
+  );
 
   final String id;
   final String file;
@@ -153,13 +163,17 @@ class Recording {
 }
 
 class Token {
-  const Token({required this.surface, required this.lemma, required this.grammar});
+  const Token({
+    required this.surface,
+    required this.lemma,
+    required this.grammar,
+  });
 
   factory Token.fromJson(Json json) => Token(
-        surface: _strings(json['surface']),
-        lemma: json['lemma'] as String,
-        grammar: (json['grammar'] as Map).cast<String, dynamic>(),
-      );
+    surface: _strings(json['surface']),
+    lemma: json['lemma'] as String,
+    grammar: (json['grammar'] as Map).cast<String, dynamic>(),
+  );
 
   final Map<String, String> surface;
   final String lemma;
@@ -176,12 +190,16 @@ class TargetPhrase {
   });
 
   factory TargetPhrase.fromJson(Json json) => TargetPhrase(
-        concept: json['concept'] as String,
-        variant: json['variant'] as String?,
-        text: _strings(json['text']),
-        tokens: (json['tokens'] as List).map((t) => Token.fromJson(t as Json)).toList(),
-        audio: (json['audio'] as List).map((r) => Recording.fromJson(r as Json)).toList(),
-      );
+    concept: json['concept'] as String,
+    variant: json['variant'] as String?,
+    text: _strings(json['text']),
+    tokens: (json['tokens'] as List)
+        .map((t) => Token.fromJson(t as Json))
+        .toList(),
+    audio: (json['audio'] as List)
+        .map((r) => Recording.fromJson(r as Json))
+        .toList(),
+  );
 
   final String concept;
   final String? variant;
@@ -195,9 +213,11 @@ class LemmaForm {
   const LemmaForm({required this.text, required this.audio});
 
   factory LemmaForm.fromJson(Json json) => LemmaForm(
-        text: _strings(json['text']),
-        audio: (json['audio'] as List).map((r) => Recording.fromJson(r as Json)).toList(),
-      );
+    text: _strings(json['text']),
+    audio: (json['audio'] as List)
+        .map((r) => Recording.fromJson(r as Json))
+        .toList(),
+  );
 
   final Map<String, String> text;
   final List<Recording> audio;
@@ -213,12 +233,17 @@ class Lemma {
   });
 
   factory Lemma.fromJson(Json json) => Lemma(
-        id: json['id'] as String,
-        text: _strings(json['text']),
-        pos: json['pos'] as String,
-        audio: (json['audio'] as List).map((r) => Recording.fromJson(r as Json)).toList(),
-        forms: [for (final f in (json['forms'] as List? ?? const [])) LemmaForm.fromJson(f as Json)],
-      );
+    id: json['id'] as String,
+    text: _strings(json['text']),
+    pos: json['pos'] as String,
+    audio: (json['audio'] as List)
+        .map((r) => Recording.fromJson(r as Json))
+        .toList(),
+    forms: [
+      for (final f in (json['forms'] as List? ?? const []))
+        LemmaForm.fromJson(f as Json),
+    ],
+  );
 
   final String id;
   final Map<String, String> text;
@@ -232,14 +257,16 @@ class Lemma {
   List<Recording> audioFor(Map<String, String> surface) {
     if (_sameWord(text, surface)) return audio;
     for (final form in forms) {
-      if (_sameWord(form.text, surface) && form.audio.isNotEmpty) return form.audio;
+      if (_sameWord(form.text, surface) && form.audio.isNotEmpty)
+        return form.audio;
     }
     return audio;
   }
 }
 
 bool _sameWord(Map<String, String> a, Map<String, String> b) =>
-    a.length == b.length && a.entries.every((e) => b[e.key]?.toLowerCase() == e.value.toLowerCase());
+    a.length == b.length &&
+    a.entries.every((e) => b[e.key]?.toLowerCase() == e.value.toLowerCase());
 
 class UnitPack {
   const UnitPack({
@@ -252,7 +279,9 @@ class UnitPack {
 
   factory UnitPack.fromJson(Json json) {
     if (json['schema_version'] != 1) {
-      throw FormatException('Unsupported unit schema ${json['schema_version']}');
+      throw FormatException(
+        'Unsupported unit schema ${json['schema_version']}',
+      );
     }
     return UnitPack(
       course: json['course'] as String,
@@ -276,13 +305,17 @@ class UnitPack {
 }
 
 class SourcePhrase {
-  const SourcePhrase({required this.concept, required this.variant, required this.text});
+  const SourcePhrase({
+    required this.concept,
+    required this.variant,
+    required this.text,
+  });
 
   factory SourcePhrase.fromJson(Json json) => SourcePhrase(
-        concept: json['concept'] as String,
-        variant: json['variant'] as String?,
-        text: _strings(json['text']),
-      );
+    concept: json['concept'] as String,
+    variant: json['variant'] as String?,
+    text: _strings(json['text']),
+  );
 
   final String concept;
   final String? variant;
@@ -293,10 +326,10 @@ class Gloss {
   const Gloss({required this.lemma, required this.gloss, this.note});
 
   factory Gloss.fromJson(Json json) => Gloss(
-        lemma: json['lemma'] as String,
-        gloss: json['gloss'] as String,
-        note: json['note'] as String?,
-      );
+    lemma: json['lemma'] as String,
+    gloss: json['gloss'] as String,
+    note: json['note'] as String?,
+  );
 
   final String lemma;
   final String gloss;
@@ -305,11 +338,17 @@ class Gloss {
 
 /// The source-language side of one unit (what the learner reads in their language).
 class UnitText {
-  const UnitText({required this.language, required this.phrases, required this.glosses});
+  const UnitText({
+    required this.language,
+    required this.phrases,
+    required this.glosses,
+  });
 
   factory UnitText.fromJson(Json json) {
     if (json['schema_version'] != 1) {
-      throw FormatException('Unsupported unit text schema ${json['schema_version']}');
+      throw FormatException(
+        'Unsupported unit text schema ${json['schema_version']}',
+      );
     }
     return UnitText(
       language: json['language'] as String,

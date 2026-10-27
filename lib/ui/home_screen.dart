@@ -21,7 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<Manifest> _manifest = loadManifest(widget.services.source);
   int _tab = 0;
 
-  void _reload() => setState(() => _manifest = loadManifest(widget.services.source));
+  void _reload() =>
+      setState(() => _manifest = loadManifest(widget.services.source));
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(l10n.loadError),
                   const SizedBox(height: 12),
-                  FilledButton.tonal(onPressed: _reload, child: Text(l10n.retry)),
+                  FilledButton.tonal(
+                    onPressed: _reload,
+                    child: Text(l10n.retry),
+                  ),
                 ],
               ),
             ),
@@ -63,8 +67,16 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedIndex: _tab,
             onDestinationSelected: (i) => setState(() => _tab = i),
             destinations: [
-              NavigationDestination(icon: const Icon(Icons.school_outlined), selectedIcon: const Icon(Icons.school), label: l10n.tabLearn),
-              NavigationDestination(icon: const Icon(Icons.settings_outlined), selectedIcon: const Icon(Icons.settings), label: l10n.tabSettings),
+              NavigationDestination(
+                icon: const Icon(Icons.school_outlined),
+                selectedIcon: const Icon(Icons.school),
+                label: l10n.tabLearn,
+              ),
+              NavigationDestination(
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                label: l10n.tabSettings,
+              ),
             ],
           ),
         );

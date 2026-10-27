@@ -6,13 +6,15 @@ import 'package:flutter/foundation.dart';
 /// Learner preferences kept on the device. Backed by a small JSON file; with no
 /// file (tests) the values live in memory only.
 class AppSettings extends ChangeNotifier {
-  AppSettings({this.file, String? initialSourceLanguage}) : _sourceLanguage = initialSourceLanguage;
+  AppSettings({this.file, String? initialSourceLanguage})
+    : _sourceLanguage = initialSourceLanguage;
 
   /// Reads [file] if it exists. A missing or unreadable file means defaults.
   static Future<AppSettings> load(File file) async {
     String? source;
     try {
-      final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+      final json =
+          jsonDecode(await file.readAsString()) as Map<String, dynamic>;
       source = json['source_language'] as String?;
     } catch (_) {}
     return AppSettings(file: file, initialSourceLanguage: source);
@@ -39,7 +41,11 @@ class AppSettings extends ChangeNotifier {
 
 /// The source language to use: the learner's choice if a course supports it,
 /// else the UI language if one does, else English, else any.
-String resolveSourceLanguage(String? chosen, Iterable<String> available, String uiLanguage) {
+String resolveSourceLanguage(
+  String? chosen,
+  Iterable<String> available,
+  String uiLanguage,
+) {
   final options = available.toList();
   for (final candidate in [chosen, uiLanguage, 'en']) {
     if (candidate != null && options.contains(candidate)) return candidate;
